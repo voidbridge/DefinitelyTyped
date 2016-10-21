@@ -54,7 +54,7 @@ declare namespace SpotifyApi {
      * Response with Playlist Snapshot
      */
     interface PlaylistSnapshotResponse {
-        snapshot_id: string
+        snapshot_id: string;
     }
 
 
@@ -71,7 +71,7 @@ declare namespace SpotifyApi {
      * GET /v1/albums
      */
     interface MultipleAlbumsResponse {
-        albums: AlbumObjectFull[]
+        albums: AlbumObjectFull[];
     }
 
     /**
@@ -91,7 +91,7 @@ declare namespace SpotifyApi {
      * GET /v1/artists
      */
     interface MultipleArtistsResponse {
-        artists: ArtistObjectFull[]
+        artists: ArtistObjectFull[];
     }
 
     /**
@@ -105,7 +105,7 @@ declare namespace SpotifyApi {
      * GET /v1/artists/{id}/top-tracks
      */
     interface ArtistsTopTracksResponse {
-        tracks: TrackObjectFull[]
+        tracks: TrackObjectFull[];
     }
 
     /**
@@ -113,7 +113,7 @@ declare namespace SpotifyApi {
      * GET /v1/artists/{id}/related-artists
      */
     interface ArtistsRelatedArtistsResponse {
-        artists: ArtistObjectFull[]
+        artists: ArtistObjectFull[];
     }
 
     /**
@@ -121,8 +121,8 @@ declare namespace SpotifyApi {
      * GET /v1/browse/featured-playlists
      */
     interface ListOfFeaturedPlaylistsResponse {
-        message?: string,
-        playlists: PagingObject<PlaylistObjectSimplified>
+        message?: string;
+        playlists: PagingObject<PlaylistObjectSimplified>;
     }
 
     /**
@@ -130,8 +130,8 @@ declare namespace SpotifyApi {
      * GET /v1/browse/new-releases
      */
     interface ListOfNewReleasesResponse {
-        message?: string,
-        albums: PagingObject<AlbumObjectSimplified>
+        message?: string;
+        albums: PagingObject<AlbumObjectSimplified>;
     }
 
     /**
@@ -139,7 +139,7 @@ declare namespace SpotifyApi {
      * GET /v1/browse/categories
      */
     interface MultipleCategoriesResponse {
-        categories: PagingObject<CategoryObject>
+        categories: PagingObject<CategoryObject>;
     }
 
     /**
@@ -153,7 +153,7 @@ declare namespace SpotifyApi {
      * GET /v1/browse/categories/{id}/playlists
      */
     interface CategoryPlaylistsReponse {
-        playlists: PagingObject<PlaylistObjectSimplified>
+        playlists: PagingObject<PlaylistObjectSimplified>;
     }
 
     /**
@@ -167,7 +167,7 @@ declare namespace SpotifyApi {
      * GET /v1/me/following?type=artist
      */
     interface UsersFollowedArtistsResponse {
-        artists: CursorBasedPagingObject<ArtistObjectFull>
+        artists: CursorBasedPagingObject<ArtistObjectFull>;
     }
 
     /**
@@ -253,7 +253,7 @@ declare namespace SpotifyApi {
      * GET /v1/search?type=album
      */
     interface AlbumSearchResponse {
-        albums: PagingObject<AlbumObjectSimplified>
+        albums: PagingObject<AlbumObjectSimplified>;
     }
 
     /**
@@ -261,7 +261,7 @@ declare namespace SpotifyApi {
      * GET /v1/search?type=artist
      */
     interface ArtistSearchResponse {
-        artists: PagingObject<ArtistObjectFull>
+        artists: PagingObject<ArtistObjectFull>;
     }
 
     /**
@@ -269,7 +269,7 @@ declare namespace SpotifyApi {
      * GET /v1/search?type=playlist
      */
     interface PlaylistSearchResponse {
-        playlists: PagingObject<PlaylistObjectSimplified>
+        playlists: PagingObject<PlaylistObjectSimplified>;
     }
 
     /**
@@ -277,7 +277,7 @@ declare namespace SpotifyApi {
      * GET /v1/search?type=track
      */
     interface TrackSearchResponse {
-        tracks: PagingObject<TrackObjectFull>
+        tracks: PagingObject<TrackObjectFull>;
     }
 
     /**
@@ -291,7 +291,7 @@ declare namespace SpotifyApi {
      * GET /v1/tracks?ids={ids}
      */
     interface MultipleTracksResponse {
-        tracks: TrackObjectFull[]
+        tracks: TrackObjectFull[];
     }
 
     /**
@@ -382,11 +382,11 @@ declare namespace SpotifyApi {
      * Doesn't exist in itself in the spotify API.
      */
     interface BasePagingObject <T>{
-        href: string,
-        items: T[],
-        limit: number,
-        next: string,
-        total: number
+        href: string;
+        items: T[];
+        limit: number;
+        next: string;
+        total: number;
     }
 
     /**
@@ -394,8 +394,8 @@ declare namespace SpotifyApi {
      * [](https://developer.spotify.com/web-api/object-model/#paging-object)
      */
     interface PagingObject<T> extends BasePagingObject<T> {
-        previous: string,
-        offset: number
+        previous: string;
+        offset: number;
     }
 
     /**
@@ -403,7 +403,7 @@ declare namespace SpotifyApi {
      * [](https://developer.spotify.com/web-api/object-model/#cursor-based-paging-object)
      */
     interface CursorBasedPagingObject<T> extends BasePagingObject<T> {
-        cursors: CursorObject
+        cursors: CursorObject;
     }
 
 
@@ -417,14 +417,14 @@ declare namespace SpotifyApi {
      * [album object (full)](https://developer.spotify.com/web-api/object-model/#album-object-simplified)
      */
     interface AlbumObjectFull extends AlbumObjectSimplified {
-        artists: ArtistObjectSimplified[],
-        copyrights: CopyrightObject[],
-        external_ids: ExternalIdObject,
-        genres: string[],
-        popularity: number,
-        release_date: string,
-        release_date_precision: string,
-        tracks: PagingObject<TrackObjectSimplified>,
+        artists: ArtistObjectSimplified[];
+        copyrights: CopyrightObject[];
+        external_ids: ExternalIdObject;
+        genres: string[];
+        popularity: number;
+        release_date: string;
+        release_date_precision: string;
+        tracks: PagingObject<TrackObjectSimplified>;
     }
 
     /**
@@ -432,15 +432,15 @@ declare namespace SpotifyApi {
      * [album object (simplified)](https://developer.spotify.com/web-api/object-model/#album-object-simplified)
      */
     interface AlbumObjectSimplified {
-        album_type: string,
-        available_markets?: string[],
-        external_urls: ExternalUrlObject,
-        href: string,
-        id: string,
-        images: ImageObject[],
-        name: string,
-        type: string,
-        uri: string
+        album_type: string;
+        available_markets?: string[];
+        external_urls: ExternalUrlObject;
+        href: string;
+        id: string;
+        images: ImageObject[];
+        name: string;
+        type: string;
+        uri: string;
     }
 
     /**
@@ -448,10 +448,10 @@ declare namespace SpotifyApi {
      * [artist object (full)](https://developer.spotify.com/web-api/object-model/)
      */
     interface ArtistObjectFull extends ArtistObjectSimplified {
-        followers: FollowersObject,
-        genres: string[],
-        images: ImageObject[],
-        popularity: number,
+        followers: FollowersObject;
+        genres: string[];
+        images: ImageObject[];
+        popularity: number;
     }
 
     /**
@@ -459,12 +459,12 @@ declare namespace SpotifyApi {
      * [artist object (simplified)](https://developer.spotify.com/web-api/object-model/)
      */
     interface ArtistObjectSimplified {
-        external_urls: ExternalUrlObject,
-        href: string,
-        id: string,
-        name: string,
-        type: string,
-        uri: string
+        external_urls: ExternalUrlObject;
+        href: string;
+        id: string;
+        name: string;
+        type: string;
+        uri: string;
     }
 
     /**
@@ -472,10 +472,10 @@ declare namespace SpotifyApi {
      * [category object](https://developer.spotify.com/web-api/object-model/)
      */
     interface CategoryObject {
-        href: string,
-        icons: ImageObject[],
-        id: string,
-        name: string
+        href: string;
+        icons: ImageObject[];
+        id: string;
+        name: string;
     }
 
     /**
@@ -483,8 +483,8 @@ declare namespace SpotifyApi {
      * [copyright object](https://developer.spotify.com/web-api/object-model/)
      */
     interface CopyrightObject {
-        text: string,
-        type: string
+        text: string;
+        type: string;
     }
 
     /**
@@ -492,7 +492,7 @@ declare namespace SpotifyApi {
      * [cursor object](https://developer.spotify.com/web-api/object-model/)
      */
     interface CursorObject {
-        after: string
+        after: string;
     }
 
     /**
@@ -500,8 +500,8 @@ declare namespace SpotifyApi {
      * [error object](https://developer.spotify.com/web-api/object-model/)
      */
     interface ErrorObject {
-        status: number,
-        message: string
+        status: number;
+        message: string;
     }
 
     /**
@@ -511,9 +511,9 @@ declare namespace SpotifyApi {
      * Note that there might be other types available, it couldn't be found in the docs.
      */
     interface ExternalIdObject {
-        isrc?: string,
-        ean?: string,
-        upc?: string
+        isrc?: string;
+        ean?: string;
+        upc?: string;
     }
 
     /**
@@ -523,7 +523,7 @@ declare namespace SpotifyApi {
      * Note that there might be other types available, it couldn't be found in the docs.
      */
     interface ExternalUrlObject {
-        spotify: string
+        spotify: string;
     }
 
     /**
@@ -531,8 +531,8 @@ declare namespace SpotifyApi {
      * [](https://developer.spotify.com/web-api/object-model/)
      */
     interface FollowersObject {
-        href: string,
-        total: number
+        href: string;
+        total: number;
     }
 
     /**
@@ -540,9 +540,9 @@ declare namespace SpotifyApi {
      * [](https://developer.spotify.com/web-api/object-model/)
      */
     interface ImageObject {
-        height?: number,
-        url: string,
-        width?: number
+        height?: number;
+        url: string;
+        width?: number;
     }
 
     /**
@@ -550,17 +550,17 @@ declare namespace SpotifyApi {
      * but needs to be made since the tracks types vary in the Full and Simplified versions.
      */
     interface PlaylistBaseObject {
-        collaborative: boolean,
-        external_urls: ExternalUrlObject,
-        href: string,
-        id: string,
-        images: ImageObject[],
-        name: string,
-        owner: UserObjectPublic,
-        public: boolean,
-        snapshot_id: string,
-        type: string,
-        uri: string
+        collaborative: boolean;
+        external_urls: ExternalUrlObject;
+        href: string;
+        id: string;
+        images: ImageObject[];
+        name: string;
+        owner: UserObjectPublic;
+        public: boolean;
+        snapshot_id: string;
+        type: string;
+        uri: string;
     }
 
     /**
@@ -568,9 +568,9 @@ declare namespace SpotifyApi {
      * [](https://developer.spotify.com/web-api/object-model/)
      */
     interface PlaylistObjectFull extends PlaylistBaseObject {
-        description: string,
-        followers: FollowersObject,
-        tracks: PagingObject<PlaylistTrackObject>
+        description: string;
+        followers: FollowersObject;
+        tracks: PagingObject<PlaylistTrackObject>;
     }
 
     /**
@@ -579,9 +579,9 @@ declare namespace SpotifyApi {
      */
     interface PlaylistObjectSimplified extends PlaylistBaseObject {
         tracks: {
-            href: string,
-            total: number
-        }
+            href: string;
+            total: number;
+        };
     }
 
     /**
@@ -589,10 +589,10 @@ declare namespace SpotifyApi {
      * [](https://developer.spotify.com/web-api/object-model/)
      */
     interface PlaylistTrackObject {
-        added_at: string,
-        added_by: UserObjectPublic,
-        is_local: boolean,
-        track: TrackObjectFull
+        added_at: string;
+        added_by: UserObjectPublic;
+        is_local: boolean;
+        track: TrackObjectFull;
     }
 
     /**
@@ -600,8 +600,8 @@ declare namespace SpotifyApi {
      * [](https://developer.spotify.com/web-api/object-model/)
      */
     interface SavedTrackObject {
-        added_at: string,
-        track: TrackObjectFull
+        added_at: string;
+        track: TrackObjectFull;
     }
 
     /**
@@ -609,8 +609,8 @@ declare namespace SpotifyApi {
      * [](https://developer.spotify.com/web-api/object-model/)
      */
     interface SavedAlbumObject {
-        added_at: string,
-        album: AlbumObjectFull
+        added_at: string;
+        album: AlbumObjectFull;
     }
 
     /**
@@ -618,9 +618,9 @@ declare namespace SpotifyApi {
      * [track object (full)](https://developer.spotify.com/web-api/object-model/#track-object-full)
      */
     interface TrackObjectFull extends TrackObjectSimplified {
-        album: AlbumObjectSimplified,
-        external_ids: ExternalIdObject,
-        popularity: number
+        album: AlbumObjectSimplified;
+        external_ids: ExternalIdObject;
+        popularity: number;
     }
 
     /**
@@ -628,21 +628,21 @@ declare namespace SpotifyApi {
      * [track object (simplified)](https://developer.spotify.com/web-api/object-model/#track-object-simplified)
      */
     interface TrackObjectSimplified {
-        artists: ArtistObjectSimplified[],
-        available_markets?: string[],
-        disc_number: number,
-        duration_ms: number,
-        explicit: boolean,
-        external_urls: ExternalUrlObject,
-        href: string,
-        id: string,
-        is_playable?: boolean,
-        linked_from?: TrackLinkObject,
-        name: string,
-        preview_url: string,
-        track_number: number,
-        type: string,
-        uri: string
+        artists: ArtistObjectSimplified[];
+        available_markets?: string[];
+        disc_number: number;
+        duration_ms: number;
+        explicit: boolean;
+        external_urls: ExternalUrlObject;
+        href: string;
+        id: string;
+        is_playable?: boolean;
+        linked_from?: TrackLinkObject;
+        name: string;
+        preview_url: string;
+        track_number: number;
+        type: string;
+        uri: string;
     }
 
     /**
@@ -650,11 +650,11 @@ declare namespace SpotifyApi {
      * [](https://developer.spotify.com/web-api/object-model/#track-object-simplified)
      */
     interface TrackLinkObject {
-        external_urls: ExternalUrlObject,
-        href: string,
-        id: string,
-        type: string,
-        uri: string
+        external_urls: ExternalUrlObject;
+        href: string;
+        id: string;
+        type: string;
+        uri: string;
     }
 
     /**
@@ -662,10 +662,10 @@ declare namespace SpotifyApi {
      * [](https://developer.spotify.com/web-api/object-model/#track-object-simplified)
      */
     interface UserObjectPrivate extends UserObjectPublic {
-        birthdate: string,
-        country: string,
-        email: string,
-        product: string
+        birthdate: string;
+        country: string;
+        email: string;
+        product: string;
     }
 
     /**
@@ -673,14 +673,14 @@ declare namespace SpotifyApi {
      * [](https://developer.spotify.com/web-api/object-model/#track-object-simplified)
      */
     interface UserObjectPublic {
-        display_name?: string,
-        external_urls: ExternalUrlObject,
-        followers?: FollowersObject,
-        href: string,
-        id: string,
-        images?: ImageObject[],
-        type: string,
-        uri: string
+        display_name?: string;
+        external_urls: ExternalUrlObject;
+        followers?: FollowersObject;
+        href: string;
+        id: string;
+        images?: ImageObject[];
+        type: string;
+        uri: string;
     }
 
 }

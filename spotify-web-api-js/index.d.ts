@@ -16,16 +16,16 @@ declare namespace SpotifyWebApiJs {
      * one is the error object (null if no error), and the second is the value if the request succeeded.
      */
     interface ResultsCallback<T> {
-        (error: ErrorObject, value: T) : any
+        (error: ErrorObject, value: T): any;
     }
 
     /**
      * Describes the regular error object: https://developer.spotify.com/web-api/user-guide/#error-details
      */
     interface ErrorObject {
-        status: number,
-        response: string,
-        statusText: string
+        status: number;
+        response: string;
+        statusText: string;
     }
 
     /**
@@ -45,7 +45,7 @@ declare namespace SpotifyWebApiJs {
          * @param url The URL to be fetched
          * @param callback An optional callback
          */
-        getGeneric(url: string, callback?: ResultsCallback<Object>) : Promise<Object>;
+        getGeneric(url: string, callback?: ResultsCallback<Object>): Promise<Object>;
 
         /**
          * Fetches information about the current user.
@@ -54,7 +54,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        getMe(options?: Object, callback?: ResultsCallback<SpotifyApi.CurrentUsersProfileResponse>) : Promise<SpotifyApi.CurrentUsersProfileResponse>;
+        getMe(options?: Object, callback?: ResultsCallback<SpotifyApi.CurrentUsersProfileResponse>): Promise<SpotifyApi.CurrentUsersProfileResponse>;
 
         /**
          * Fetches current user's saved tracks.
@@ -63,7 +63,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        getMySavedTracks(options?: Object, callback?: ResultsCallback<SpotifyApi.UsersSavedTracksResponse>) : Promise<SpotifyApi.UsersSavedTracksResponse>;
+        getMySavedTracks(options?: Object, callback?: ResultsCallback<SpotifyApi.UsersSavedTracksResponse>): Promise<SpotifyApi.UsersSavedTracksResponse>;
 
         /**
          * Adds a list of tracks to the current user's saved tracks.
@@ -73,7 +73,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        addToMySavedTracks(trackIds: string[], options?: Object, callback?: ResultsCallback<SpotifyApi.SaveTracksForUserResponse>) : Promise<SpotifyApi.SaveTracksForUserResponse>;
+        addToMySavedTracks(trackIds: string[], options?: Object, callback?: ResultsCallback<SpotifyApi.SaveTracksForUserResponse>): Promise<SpotifyApi.SaveTracksForUserResponse>;
 
         /**
          * Remove a list of tracks from the current user's saved tracks.
@@ -83,7 +83,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        removeFromMySavedTracks(trackIds: string[], options?: Object, callback?: ResultsCallback<SpotifyApi.RemoveUsersSavedTracksResponse>) : Promise<SpotifyApi.RemoveUsersSavedTracksResponse>;
+        removeFromMySavedTracks(trackIds: string[], options?: Object, callback?: ResultsCallback<SpotifyApi.RemoveUsersSavedTracksResponse>): Promise<SpotifyApi.RemoveUsersSavedTracksResponse>;
 
         /**
          * Checks if the current user's saved tracks contains a certain list of tracks.
@@ -93,7 +93,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        containsMySavedTracks(trackIds: string[], options?: Object, callback?: ResultsCallback<SpotifyApi.CheckUsersSavedTracksResponse>) : Promise<SpotifyApi.CheckUsersSavedTracksResponse>;
+        containsMySavedTracks(trackIds: string[], options?: Object, callback?: ResultsCallback<SpotifyApi.CheckUsersSavedTracksResponse>): Promise<SpotifyApi.CheckUsersSavedTracksResponse>;
 
         /**
          * Adds the current user as a follower of one or more other Spotify users.
@@ -102,7 +102,7 @@ declare namespace SpotifyWebApiJs {
          * @param userIds The ids of the users. If you know their Spotify URI it is easy to find their user id (e.g. spotify:user:<here_is_the_user_id>)
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded. one is the error object (null if no error), and the second is an empty value if the request succeeded.
          */
-        followUsers(userIds: string[], callback?: ResultsCallback<SpotifyApi.FollowArtistsOrUsersResponse>) : Promise<SpotifyApi.FollowArtistsOrUsersResponse>;
+        followUsers(userIds: string[], callback?: ResultsCallback<SpotifyApi.FollowArtistsOrUsersResponse>): Promise<SpotifyApi.FollowArtistsOrUsersResponse>;
 
         /**
          * Adds the current user as a follower of one or more artists.
@@ -111,7 +111,7 @@ declare namespace SpotifyWebApiJs {
          * @param artistIds The ids of the artists. If you know their Spotify URI it is easy to find their artist id (e.g. spotify:artist:<here_is_the_artist_id>)
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded. one is the error object (null if no error), and the second is an empty value if the request succeeded.
          */
-        followArtists(artistIds: string[], callback?: ResultsCallback<SpotifyApi.FollowArtistsOrUsersResponse>) : Promise<SpotifyApi.FollowArtistsOrUsersResponse>;
+        followArtists(artistIds: string[], callback?: ResultsCallback<SpotifyApi.FollowArtistsOrUsersResponse>): Promise<SpotifyApi.FollowArtistsOrUsersResponse>;
 
         /**
          * Add the current user as a follower of one playlist.
@@ -122,7 +122,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed. For instance, whether you want the playlist to be followed privately ({public: false})
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        followPlaylist(ownerId: string, playlistId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.FollowPlaylistReponse>) : Promise<SpotifyApi.FollowPlaylistReponse>;
+        followPlaylist(ownerId: string, playlistId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.FollowPlaylistReponse>): Promise<SpotifyApi.FollowPlaylistReponse>;
 
         /**
          * Removes the current user as a follower of one or more other Spotify users.
@@ -131,7 +131,7 @@ declare namespace SpotifyWebApiJs {
          * @param userIds The ids of the users. If you know their Spotify URI it is easy to find their user id (e.g. spotify:user:<here_is_the_user_id>)
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        unfollowUsers(userIds: string[], callback?: ResultsCallback<SpotifyApi.UnfollowArtistsOrUsersResponse>) : Promise<SpotifyApi.UnfollowArtistsOrUsersResponse>;
+        unfollowUsers(userIds: string[], callback?: ResultsCallback<SpotifyApi.UnfollowArtistsOrUsersResponse>): Promise<SpotifyApi.UnfollowArtistsOrUsersResponse>;
 
         /**
          * Removes the current user as a follower of one or more artists.
@@ -140,7 +140,7 @@ declare namespace SpotifyWebApiJs {
          * @param artistIds The ids of the artists. If you know their Spotify URI it is easy to find their artist id (e.g. spotify:artist:<here_is_the_artist_id>)
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        unfollowArtists(artistIds: string[], callback?: ResultsCallback<SpotifyApi.UnfollowArtistsOrUsersResponse>) : Promise<SpotifyApi.UnfollowArtistsOrUsersResponse>;
+        unfollowArtists(artistIds: string[], callback?: ResultsCallback<SpotifyApi.UnfollowArtistsOrUsersResponse>): Promise<SpotifyApi.UnfollowArtistsOrUsersResponse>;
 
         /**
          * Remove the current user as a follower of one playlist.
@@ -150,7 +150,7 @@ declare namespace SpotifyWebApiJs {
          * @param playlistId The id of the playlist. If you know the Spotify URI it is easy to find the playlist id (e.g. spotify:user:xxxx:playlist:<here_is_the_playlist_id>)
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        unfollowPlaylist(ownerId: string, playlistId: string, callback?: ResultsCallback<SpotifyApi.UnfollowPlaylistReponse>) : Promise<SpotifyApi.UnfollowPlaylistReponse>;
+        unfollowPlaylist(ownerId: string, playlistId: string, callback?: ResultsCallback<SpotifyApi.UnfollowPlaylistReponse>): Promise<SpotifyApi.UnfollowPlaylistReponse>;
 
         /**
          * Checks to see if the current user is following one or more other Spotify users.
@@ -159,7 +159,7 @@ declare namespace SpotifyWebApiJs {
          * @param userIds The ids of the users. If you know their Spotify URI it is easy to find their user id (e.g. spotify:user:<here_is_the_user_id>)
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        isFollowingUsers(userIds: string[], callback?: ResultsCallback<SpotifyApi.UserFollowsUsersOrArtistsResponse>) : Promise<SpotifyApi.UserFollowsUsersOrArtistsResponse>
+        isFollowingUsers(userIds: string[], callback?: ResultsCallback<SpotifyApi.UserFollowsUsersOrArtistsResponse>): Promise<SpotifyApi.UserFollowsUsersOrArtistsResponse>;
 
         /**
          * Checks to see if the current user is following one or more artists.
@@ -168,7 +168,7 @@ declare namespace SpotifyWebApiJs {
          * @param artistIds The ids of the artists. If you know their Spotify URI it is easy to find their artist id (e.g. spotify:artist:<here_is_the_artist_id>)
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        isFollowingArtists(artistIds: string[], callback?: ResultsCallback<SpotifyApi.UserFollowsUsersOrArtistsResponse>) : Promise<SpotifyApi.UserFollowsUsersOrArtistsResponse>;
+        isFollowingArtists(artistIds: string[], callback?: ResultsCallback<SpotifyApi.UserFollowsUsersOrArtistsResponse>): Promise<SpotifyApi.UserFollowsUsersOrArtistsResponse>;
 
         /**
          * Check to see if one or more Spotify users are following a specified playlist.
@@ -179,7 +179,7 @@ declare namespace SpotifyWebApiJs {
          * @param userIds The ids of the users. If you know their Spotify URI it is easy to find their user id (e.g. spotify:user:<here_is_the_user_id>)
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        areFollowingPlaylist(ownerId: string, playlistId: string, userIds: string[], callback?: ResultsCallback<SpotifyApi.UsersFollowPlaylistReponse>) : Promise<SpotifyApi.UsersFollowPlaylistReponse>;
+        areFollowingPlaylist(ownerId: string, playlistId: string, userIds: string[], callback?: ResultsCallback<SpotifyApi.UsersFollowPlaylistReponse>): Promise<SpotifyApi.UsersFollowPlaylistReponse>;
 
         /**
          * Get the current user's followed artists.
@@ -188,7 +188,7 @@ declare namespace SpotifyWebApiJs {
          * @param options Options, being after and limit.
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        getFollowedArtists(options?: Object, callback?: ResultsCallback<SpotifyApi.UsersFollowedArtistsResponse>) : Promise<SpotifyApi.UsersFollowedArtistsResponse>;
+        getFollowedArtists(options?: Object, callback?: ResultsCallback<SpotifyApi.UsersFollowedArtistsResponse>): Promise<SpotifyApi.UsersFollowedArtistsResponse>;
 
         /**
          * Fetches information about a specific user.
@@ -198,7 +198,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        getUser(userId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.UserProfileResponse>) : Promise<SpotifyApi.UserProfileResponse>;
+        getUser(userId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.UserProfileResponse>): Promise<SpotifyApi.UserProfileResponse>;
 
         /**
          * Fetches a list of the current user's playlists.
@@ -208,7 +208,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        getUserPlaylists(userId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.ListOfUsersPlaylistsResponse>) : Promise<SpotifyApi.ListOfUsersPlaylistsResponse>;
+        getUserPlaylists(userId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.ListOfUsersPlaylistsResponse>): Promise<SpotifyApi.ListOfUsersPlaylistsResponse>;
 
         /**
          * Fetches a specific playlist.
@@ -219,7 +219,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        getPlaylist(userId: string, playlistId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.SinglePlaylistResponse>) : Promise<SpotifyApi.SinglePlaylistResponse>;
+        getPlaylist(userId: string, playlistId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.SinglePlaylistResponse>): Promise<SpotifyApi.SinglePlaylistResponse>;
 
         /**
          * Fetches the tracks from a specific playlist.
@@ -230,7 +230,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        getPlaylistTracks(userId: string, playlistId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.PlaylistTrackResponse>) : Promise<SpotifyApi.PlaylistTrackResponse>;
+        getPlaylistTracks(userId: string, playlistId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.PlaylistTrackResponse>): Promise<SpotifyApi.PlaylistTrackResponse>;
 
         /**
          * Creates a playlist and stores it in the current user's library.
@@ -240,7 +240,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        createPlaylist(userId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.CreatePlaylistResponse>) : Promise<SpotifyApi.CreatePlaylistResponse>;
+        createPlaylist(userId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.CreatePlaylistResponse>): Promise<SpotifyApi.CreatePlaylistResponse>;
 
         /**
          * Change a playlist's name and public/private state
@@ -251,7 +251,7 @@ declare namespace SpotifyWebApiJs {
          * @param data A JSON object with the data to update. E.g. {name: 'A new name', public: true}
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        changePlaylistDetails(userId: string, playlistId: string, data: Object, callback?: ResultsCallback<SpotifyApi.ChangePlaylistDetailsReponse>) : Promise<SpotifyApi.ChangePlaylistDetailsReponse>;
+        changePlaylistDetails(userId: string, playlistId: string, data: Object, callback?: ResultsCallback<SpotifyApi.ChangePlaylistDetailsReponse>): Promise<SpotifyApi.ChangePlaylistDetailsReponse>;
 
         /**
          * Add tracks to a playlist.
@@ -263,7 +263,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        addTracksToPlaylist(userId: string, playlistId: string, uris: string[], options?: Object, callback?: ResultsCallback<SpotifyApi.AddTracksToPlaylistResponse>) : Promise<SpotifyApi.AddTracksToPlaylistResponse>;
+        addTracksToPlaylist(userId: string, playlistId: string, uris: string[], options?: Object, callback?: ResultsCallback<SpotifyApi.AddTracksToPlaylistResponse>): Promise<SpotifyApi.AddTracksToPlaylistResponse>;
 
         /**
          * Replace the tracks of a playlist
@@ -274,7 +274,7 @@ declare namespace SpotifyWebApiJs {
          * @param uris An array of Spotify URIs for the tracks
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        replaceTracksInPlaylist(userId: string, playlistId: string, uris: string[], callback?: ResultsCallback<SpotifyApi.ReplacePlaylistTracksResponse>) : Promise<SpotifyApi.ReplacePlaylistTracksResponse>;
+        replaceTracksInPlaylist(userId: string, playlistId: string, uris: string[], callback?: ResultsCallback<SpotifyApi.ReplacePlaylistTracksResponse>): Promise<SpotifyApi.ReplacePlaylistTracksResponse>;
 
         /**
          * Reorder tracks in a playlist
@@ -287,7 +287,7 @@ declare namespace SpotifyWebApiJs {
          * @param options An object with optional parameters (range_length, snapshot_id)
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        reorderTracksInPlaylist(userId: string, playlistId: string, rangeStart: number, insertBefore: number, options?: Object, callback?: ResultsCallback<SpotifyApi.ReorderPlaylistTracksResponse>) : Promise<SpotifyApi.ReorderPlaylistTracksResponse>;
+        reorderTracksInPlaylist(userId: string, playlistId: string, rangeStart: number, insertBefore: number, options?: Object, callback?: ResultsCallback<SpotifyApi.ReorderPlaylistTracksResponse>): Promise<SpotifyApi.ReorderPlaylistTracksResponse>;
 
         /**
          * Remove tracks from a playlist
@@ -298,7 +298,7 @@ declare namespace SpotifyWebApiJs {
          * @param uris An array of tracks to be removed. Each element of the array can be either a string, in which case it is treated as a URI, or an object containing the properties `uri` (which is a string) and `positions` (which is an array of integers).
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        removeTracksFromPlaylist(userId: string, playlistId: string, uris: Object[], callback?: ResultsCallback<SpotifyApi.RemoveTracksFromPlaylistResponse>) : Promise<SpotifyApi.RemoveTracksFromPlaylistResponse>;
+        removeTracksFromPlaylist(userId: string, playlistId: string, uris: Object[], callback?: ResultsCallback<SpotifyApi.RemoveTracksFromPlaylistResponse>): Promise<SpotifyApi.RemoveTracksFromPlaylistResponse>;
 
         /**
          * Remove tracks from a playlist, specifying a snapshot id.
@@ -310,7 +310,7 @@ declare namespace SpotifyWebApiJs {
          * @param snapshotId The playlist's snapshot ID against which you want to make the changes
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        removeTracksFromPlaylistWithSnapshotId(userId: string, playlistId: string, uris: Object[], snapshotId: string, callback?: ResultsCallback<SpotifyApi.PlaylistSnapshotResponse>) : Promise<SpotifyApi.PlaylistSnapshotResponse>;
+        removeTracksFromPlaylistWithSnapshotId(userId: string, playlistId: string, uris: Object[], snapshotId: string, callback?: ResultsCallback<SpotifyApi.PlaylistSnapshotResponse>): Promise<SpotifyApi.PlaylistSnapshotResponse>;
 
         /**
          * Remove tracks from a playlist, specifying the positions of the tracks to be removed.
@@ -323,7 +323,7 @@ declare namespace SpotifyWebApiJs {
          * @param snapshotId The playlist's snapshot ID against which you want to make the changes
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        removeTracksFromPlaylistInPositions(userId: string, playlistId: string, positions: number[], snapshotId: string, callback?: ResultsCallback<SpotifyApi.PlaylistSnapshotResponse>) : Promise<SpotifyApi.PlaylistSnapshotResponse>;
+        removeTracksFromPlaylistInPositions(userId: string, playlistId: string, positions: number[], snapshotId: string, callback?: ResultsCallback<SpotifyApi.PlaylistSnapshotResponse>): Promise<SpotifyApi.PlaylistSnapshotResponse>;
 
         /**
          * Fetches an album from the Spotify catalog.
@@ -333,7 +333,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        getAlbum(albumId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.SingleAlbumResponse>) : Promise<SpotifyApi.SingleAlbumResponse>;
+        getAlbum(albumId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.SingleAlbumResponse>): Promise<SpotifyApi.SingleAlbumResponse>;
 
         /**
          * Fetches the tracks of an album from the Spotify catalog.
@@ -343,7 +343,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        getAlbumTracks(albumId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.AlbumTracksResponse>) : Promise<SpotifyApi.AlbumTracksResponse>;
+        getAlbumTracks(albumId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.AlbumTracksResponse>): Promise<SpotifyApi.AlbumTracksResponse>;
 
         /**
          * Fetches multiple albums from the Spotify catalog.
@@ -353,7 +353,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        getAlbums(albumIds: string[], options?: Object, callback?: ResultsCallback<SpotifyApi.MultipleAlbumsResponse>) : Promise<SpotifyApi.MultipleAlbumsResponse>;
+        getAlbums(albumIds: string[], options?: Object, callback?: ResultsCallback<SpotifyApi.MultipleAlbumsResponse>): Promise<SpotifyApi.MultipleAlbumsResponse>;
 
         /**
          * Fetches a track from the Spotify catalog.
@@ -363,7 +363,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        getTrack(trackId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.SingleTrackResponse>) : Promise<SpotifyApi.SingleTrackResponse>;
+        getTrack(trackId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.SingleTrackResponse>): Promise<SpotifyApi.SingleTrackResponse>;
 
         /**
          * Fetches multiple tracks from the Spotify catalog.
@@ -373,7 +373,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        getTracks(trackIds: string[], options?: Object, callback?: ResultsCallback<SpotifyApi.MultipleTracksResponse>) : Promise<SpotifyApi.MultipleTracksResponse>;
+        getTracks(trackIds: string[], options?: Object, callback?: ResultsCallback<SpotifyApi.MultipleTracksResponse>): Promise<SpotifyApi.MultipleTracksResponse>;
 
         /**
          * Fetches an artist from the Spotify catalog.
@@ -383,7 +383,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        getArtist(artistId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.SingleArtistResponse>) : Promise<SpotifyApi.SingleArtistResponse>;
+        getArtist(artistId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.SingleArtistResponse>): Promise<SpotifyApi.SingleArtistResponse>;
 
         /**
          * Fetches multiple artists from the Spotify catalog.
@@ -393,7 +393,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        getArtists(artistIds: string[], options?: Object, callback?: ResultsCallback<SpotifyApi.MultipleArtistsResponse>) : Promise<SpotifyApi.MultipleArtistsResponse>;
+        getArtists(artistIds: string[], options?: Object, callback?: ResultsCallback<SpotifyApi.MultipleArtistsResponse>): Promise<SpotifyApi.MultipleArtistsResponse>;
 
         /**
          * Fetches the albums of an artist from the Spotify catalog.
@@ -403,7 +403,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        getArtistAlbums(artistId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.ArtistsAlbumsResponse>) : Promise<SpotifyApi.ArtistsAlbumsResponse>;
+        getArtistAlbums(artistId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.ArtistsAlbumsResponse>): Promise<SpotifyApi.ArtistsAlbumsResponse>;
 
         /**
          * Fetches a list of top tracks of an artist from the Spotify catalog, for a specific country.
@@ -414,7 +414,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        getArtistTopTracks(artistId: string, countryId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.ArtistsTopTracksResponse>) : Promise<SpotifyApi.ArtistsTopTracksResponse>;
+        getArtistTopTracks(artistId: string, countryId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.ArtistsTopTracksResponse>): Promise<SpotifyApi.ArtistsTopTracksResponse>;
 
         /**
          * Fetches a list of artists related with a given one from the Spotify catalog.
@@ -424,7 +424,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        getArtistRelatedArtists(artistId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.ArtistsRelatedArtistsResponse>) : Promise<SpotifyApi.ArtistsRelatedArtistsResponse>;
+        getArtistRelatedArtists(artistId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.ArtistsRelatedArtistsResponse>): Promise<SpotifyApi.ArtistsRelatedArtistsResponse>;
 
         /**
          * Fetches a list of Spotify featured playlists (shown, for example, on a Spotify player's "Browse" tab).
@@ -433,7 +433,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        getFeaturedPlaylists(options?: Object, callback?: ResultsCallback<SpotifyApi.ListOfFeaturedPlaylistsResponse>) : Promise<SpotifyApi.ListOfFeaturedPlaylistsResponse>;
+        getFeaturedPlaylists(options?: Object, callback?: ResultsCallback<SpotifyApi.ListOfFeaturedPlaylistsResponse>): Promise<SpotifyApi.ListOfFeaturedPlaylistsResponse>;
 
         /**
          * Fetches a list of new album releases featured in Spotify (shown, for example, on a Spotify player's "Browse" tab).
@@ -442,7 +442,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        getNewReleases(options?: Object, callback?: ResultsCallback<SpotifyApi.ListOfNewReleasesResponse>) : Promise<SpotifyApi.ListOfNewReleasesResponse>;
+        getNewReleases(options?: Object, callback?: ResultsCallback<SpotifyApi.ListOfNewReleasesResponse>): Promise<SpotifyApi.ListOfNewReleasesResponse>;
 
         /**
          * Get a list of categories used to tag items in Spotify (on, for example, the Spotify player's "Browse" tab).
@@ -451,7 +451,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        getCategories(options?: Object, callback?: ResultsCallback<SpotifyApi.MultipleCategoriesResponse>) : Promise<SpotifyApi.MultipleCategoriesResponse>;
+        getCategories(options?: Object, callback?: ResultsCallback<SpotifyApi.MultipleCategoriesResponse>): Promise<SpotifyApi.MultipleCategoriesResponse>;
 
         /**
          * Get a single category used to tag items in Spotify (on, for example, the Spotify player's "Browse" tab).
@@ -461,7 +461,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        getCategory(categoryId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.SingleCategoryResponse>) : Promise<SpotifyApi.SingleCategoryResponse>;
+        getCategory(categoryId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.SingleCategoryResponse>): Promise<SpotifyApi.SingleCategoryResponse>;
 
         /**
          * Get a list of Spotify playlists tagged with a particular category.
@@ -471,7 +471,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        getCategoryPlaylists(categoryId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.CategoryPlaylistsReponse>) : Promise<SpotifyApi.CategoryPlaylistsReponse>;
+        getCategoryPlaylists(categoryId: string, options?: Object, callback?: ResultsCallback<SpotifyApi.CategoryPlaylistsReponse>): Promise<SpotifyApi.CategoryPlaylistsReponse>;
 
         /**
          * Fetches albums from the Spotify catalog according to a query.
@@ -481,7 +481,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        searchAlbums(query: string, options?: SpotifyApi.SearchForItemParameterObject, callback?: ResultsCallback<SpotifyApi.AlbumSearchResponse>) : Promise<SpotifyApi.AlbumSearchResponse>;
+        searchAlbums(query: string, options?: SpotifyApi.SearchForItemParameterObject, callback?: ResultsCallback<SpotifyApi.AlbumSearchResponse>): Promise<SpotifyApi.AlbumSearchResponse>;
 
         /**
          * Fetches artists from the Spotify catalog according to a query.
@@ -491,7 +491,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        searchArtists(query: string, options?: SpotifyApi.SearchForItemParameterObject, callback?: ResultsCallback<SpotifyApi.ArtistSearchResponse>) : Promise<SpotifyApi.ArtistSearchResponse>;
+        searchArtists(query: string, options?: SpotifyApi.SearchForItemParameterObject, callback?: ResultsCallback<SpotifyApi.ArtistSearchResponse>): Promise<SpotifyApi.ArtistSearchResponse>;
 
         /**
          * Fetches tracks from the Spotify catalog according to a query.
@@ -501,7 +501,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        searchTracks(query: string, options?: SpotifyApi.SearchForItemParameterObject, callback?: ResultsCallback<SpotifyApi.TrackSearchResponse>) : Promise<SpotifyApi.TrackSearchResponse>;
+        searchTracks(query: string, options?: SpotifyApi.SearchForItemParameterObject, callback?: ResultsCallback<SpotifyApi.TrackSearchResponse>): Promise<SpotifyApi.TrackSearchResponse>;
 
         /**
          * Fetches playlists from the Spotify catalog according to a query.
@@ -511,7 +511,7 @@ declare namespace SpotifyWebApiJs {
          * @param options A JSON object with options that can be passed
          * @param callback An optional callback that receives 2 parameters. The first one is the error object (null if no error), and the second is the value if the request succeeded.
          */
-        searchPlaylists(query: string, options?: SpotifyApi.SearchForItemParameterObject, callback?: ResultsCallback<SpotifyApi.PlaylistSearchResponse>) : Promise<SpotifyApi.PlaylistSearchResponse>;
+        searchPlaylists(query: string, options?: SpotifyApi.SearchForItemParameterObject, callback?: ResultsCallback<SpotifyApi.PlaylistSearchResponse>): Promise<SpotifyApi.PlaylistSearchResponse>;
 
         /**
          * Sets the access token to be used.
@@ -519,7 +519,7 @@ declare namespace SpotifyWebApiJs {
          *
          * @param accessToken The access token
          */
-        setAccessToken(accessToken: string) : void;
+        setAccessToken(accessToken: string): void;
 
         /**
          * Sets an implementation of Promises/A+ to be used. E.g. Q, when.
@@ -528,6 +528,6 @@ declare namespace SpotifyWebApiJs {
          * @param promiseImplementation A Promises/A+ valid implementation
          * @throws {Error} If the implementation being set doesn't conform with Promises/A+
          */
-        setPromiseImplementation(promiseImplementation: Object) : void;
+        setPromiseImplementation(promiseImplementation: Object): void;
     }
 }

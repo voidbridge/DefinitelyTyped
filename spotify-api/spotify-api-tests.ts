@@ -1,9 +1,9 @@
 /*
  * This test file contains the sample output from The Spotify Web Api obtained from [The Web API Console](https://developer.spotify.com/web-api/console/)
  * The standard suggested values for input were used.
- * 
+ *
  * Combined with the typings it should compile without errors.
- * 
+ *
  * The order of tests is the same as on [The Spotify Web Api](https://developer.spotify.com/web-api/endpoint-reference/)
  * To find tests, search for "* Tests" instead of scrolling to keep sane.
  */
@@ -5934,7 +5934,7 @@ var playlist : SpotifyApi.SinglePlaylistResponse = {
 
 
 /**
- * Tests 
+ * Tests
  */
 var playlistTracks : SpotifyApi.PlaylistTrackResponse = {
   "href" : "https://api.spotify.com/v1/users/spotify_espa%C3%B1a/playlists/21THa8j9TaSGuXYNBU5tsC/tracks?offset=0&limit=3",

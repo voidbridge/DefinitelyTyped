@@ -11,7 +11,7 @@ declare namespace Ejs {
     function resolveInclude(name: string, filename: string): string;
     function compile(template: string, opts?: Options): (TemplateFunction);
     function render(template: string, data?: Data, opts?: Options): string;
-    function renderFile(path: string, data?: Data, opts?: Options, cb?: Function): any;// TODO RenderFileCallback return type
+    function renderFile(path: string, data?: Data, opts?: Options, cb?: Function): any; // TODO RenderFileCallback return type
     function clearCache(): any;
 
     interface TemplateFunction {

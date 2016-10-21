@@ -1379,12 +1379,12 @@ declare namespace angular {
          */
         url: string;
         /**
-         * Event listeners to be bound to the XMLHttpRequest object. 
+         * Event listeners to be bound to the XMLHttpRequest object.
          * To bind events to the XMLHttpRequest upload object, use uploadEventHandlers. The handler will be called in the context of a $apply block.
          */
         eventHandlers?: { [type: string]: EventListenerOrEventListenerObject };
         /**
-         * Event listeners to be bound to the XMLHttpRequest upload object. 
+         * Event listeners to be bound to the XMLHttpRequest upload object.
          * To bind events to the XMLHttpRequest object, use eventHandlers. The handler will be called in the context of a $apply block.
          */
         uploadEventHandlers?: { [type: string]: EventListenerOrEventListenerObject };
@@ -1432,7 +1432,7 @@ declare namespace angular {
         (data: any, headersGetter: IHttpHeadersGetter, status: number): any;
     }
 
-    type HttpHeaderType = {[requestType: string]:string|((config:IRequestConfig) => string)};
+    type HttpHeaderType = {[requestType: string]: string|((config: IRequestConfig) => string)};
 
     interface IHttpRequestConfigHeaders {
         [requestType: string]: any;
@@ -1525,7 +1525,7 @@ declare namespace angular {
          * @returns {boolean|Object} If a value is specified, returns the $httpProvider for chaining.
          *    otherwise, returns the current configured value.
          */
-        useLegacyPromiseExtensions(value:boolean) : boolean | IHttpProvider;
+        useLegacyPromiseExtensions(value: boolean): boolean | IHttpProvider;
     }
 
     ///////////////////////////////////////////////////////////////////////////
@@ -1708,7 +1708,7 @@ declare namespace angular {
         (new (...args: any[]) => IController) |
         // Instead of classes, plain functions are often used as controller constructors, especially in examples.
         ((...args: any[]) => (void | IController));
-    
+
     /**
      * Directive controllers have a well-defined lifecycle. Each controller can implement "lifecycle hooks". These are methods that
      * will be called by Angular at certain points in the life cycle of the directive.
@@ -1849,7 +1849,7 @@ declare namespace angular {
     ///////////////////////////////////////////////////////////////////////////
     // AUTO module (angular.js)
     ///////////////////////////////////////////////////////////////////////////
-    export module auto {
+    export namespace auto {
 
         ///////////////////////////////////////////////////////////////////////
         // InjectorService
@@ -1859,33 +1859,33 @@ declare namespace angular {
             annotate(fn: Function, strictDi?: boolean): string[];
             annotate(inlineAnnotatedFunction: any[]): string[];
             get<T>(name: string, caller?: string): T;
-            get(name: '$anchorScroll'): IAnchorScrollService
-            get(name: '$cacheFactory'): ICacheFactoryService
-            get(name: '$compile'): ICompileService
-            get(name: '$controller'): IControllerService
-            get(name: '$document'): IDocumentService
-            get(name: '$exceptionHandler'): IExceptionHandlerService
-            get(name: '$filter'): IFilterService
-            get(name: '$http'): IHttpService
-            get(name: '$httpBackend'): IHttpBackendService
-            get(name: '$httpParamSerializer'): IHttpParamSerializer
-            get(name: '$httpParamSerializerJQLike'): IHttpParamSerializer
-            get(name: '$interpolate'): IInterpolateService
-            get(name: '$interval'): IIntervalService
-            get(name: '$locale'): ILocaleService
-            get(name: '$location'): ILocationService
-            get(name: '$log'): ILogService
-            get(name: '$parse'): IParseService
-            get(name: '$q'): IQService
-            get(name: '$rootElement'): IRootElementService
-            get(name: '$rootScope'): IRootScopeService
-            get(name: '$sce'): ISCEService
-            get(name: '$sceDelegate'): ISCEDelegateService
-            get(name: '$templateCache'): ITemplateCacheService
-            get(name: '$templateRequest'): ITemplateRequestService
-            get(name: '$timeout'): ITimeoutService
-            get(name: '$window'): IWindowService
-            get<T>(name: '$xhrFactory'): IXhrFactory<T>
+            get(name: '$anchorScroll'): IAnchorScrollService;
+            get(name: '$cacheFactory'): ICacheFactoryService;
+            get(name: '$compile'): ICompileService;
+            get(name: '$controller'): IControllerService;
+            get(name: '$document'): IDocumentService;
+            get(name: '$exceptionHandler'): IExceptionHandlerService;
+            get(name: '$filter'): IFilterService;
+            get(name: '$http'): IHttpService;
+            get(name: '$httpBackend'): IHttpBackendService;
+            get(name: '$httpParamSerializer'): IHttpParamSerializer;
+            get(name: '$httpParamSerializerJQLike'): IHttpParamSerializer;
+            get(name: '$interpolate'): IInterpolateService;
+            get(name: '$interval'): IIntervalService;
+            get(name: '$locale'): ILocaleService;
+            get(name: '$location'): ILocationService;
+            get(name: '$log'): ILogService;
+            get(name: '$parse'): IParseService;
+            get(name: '$q'): IQService;
+            get(name: '$rootElement'): IRootElementService;
+            get(name: '$rootScope'): IRootScopeService;
+            get(name: '$sce'): ISCEService;
+            get(name: '$sceDelegate'): ISCEDelegateService;
+            get(name: '$templateCache'): ITemplateCacheService;
+            get(name: '$templateRequest'): ITemplateRequestService;
+            get(name: '$timeout'): ITimeoutService;
+            get(name: '$window'): IWindowService;
+            get<T>(name: '$xhrFactory'): IXhrFactory<T>;
             has(name: string): boolean;
             instantiate<T>(typeConstructor: Function, locals?: any): T;
             invoke(inlineAnnotatedFunction: any[]): any;

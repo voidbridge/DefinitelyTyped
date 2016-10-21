@@ -66,7 +66,7 @@ interface mozRTCPeerConnection extends RTCPeerConnection {
 declare var mozRTCPeerConnection: {
   prototype: mozRTCPeerConnection;
   new (settings?: RTCConfiguration,
-       constraints?:RTCMediaConstraints): mozRTCPeerConnection;
+       constraints?: RTCMediaConstraints): mozRTCPeerConnection;
 };
 // webkit (Chrome) specific prefixes.
 interface webkitRTCPeerConnection extends RTCPeerConnection {
@@ -74,7 +74,7 @@ interface webkitRTCPeerConnection extends RTCPeerConnection {
 declare var webkitRTCPeerConnection: {
   prototype: webkitRTCPeerConnection;
   new (settings?: RTCConfiguration,
-       constraints?:RTCMediaConstraints): webkitRTCPeerConnection;
+       constraints?: RTCMediaConstraints): webkitRTCPeerConnection;
 };
 
 // For Chrome, look at the code here:
@@ -90,7 +90,7 @@ interface RTCOptionalMediaConstraint {
 // http://www.w3.org/TR/2013/WD-webrtc-20130910/
 interface RTCMediaConstraints {
   mandatory?: RTCMediaOfferConstraints;
-  optional?: RTCOptionalMediaConstraint[]
+  optional?: RTCOptionalMediaConstraint[];
 }
 
 interface RTCMediaOfferConstraints {
@@ -114,7 +114,7 @@ declare var RTCSessionDescription: {
   // See: http://dev.w3.org/2011/webrtc/editor/webrtc.html#idl-def-RTCSdpType)
 };
 
-interface webkitRTCSessionDescription extends RTCSessionDescription{
+interface webkitRTCSessionDescription extends RTCSessionDescription {
   type?: string;
   sdp?: string;
 }
@@ -123,7 +123,7 @@ declare var webkitRTCSessionDescription: {
   new (descriptionInitDict?: RTCSessionDescriptionInit): webkitRTCSessionDescription;
 };
 
-interface mozRTCSessionDescription extends RTCSessionDescription{
+interface mozRTCSessionDescription extends RTCSessionDescription {
   type?: string;
   sdp?: string;
 }
@@ -301,9 +301,9 @@ interface RTCPeerConnection {
   updateIce(configuration?: RTCConfiguration,
             constraints?: RTCMediaConstraints): void;
   addIceCandidate(candidate: RTCIceCandidate): Promise<void>;
-  addIceCandidate(candidate:RTCIceCandidate,
-                  successCallback:() => void,
-                  failureCallback:RTCPeerConnectionErrorCallback): void;
+  addIceCandidate(candidate: RTCIceCandidate,
+                  successCallback: () => void,
+                  failureCallback: RTCPeerConnectionErrorCallback): void;
   iceGatheringState: string;  // RTCIceGatheringState; see TODO(1)
   iceConnectionState: string;  // RTCIceConnectionState; see TODO(1)
   getLocalStreams(): MediaStream[];
@@ -370,7 +370,7 @@ interface RTCIceCandidateInit {
   sdpMid?: string;
   sdpMLineIndex?: number;
 }
-declare var RTCIceCandidateInit:{
+declare var RTCIceCandidateInit: {
   prototype: RTCIceCandidateInit;
   new (): RTCIceCandidateInit;
 };
@@ -392,7 +392,7 @@ declare var RTCPeerConnectionConfig: {
   new (): RTCPeerConnectionConfig;
 };
 
-interface Window{
+interface Window {
   RTCPeerConnection: RTCPeerConnection;
   webkitRTCPeerConnection: webkitRTCPeerConnection;
   mozRTCPeerConnection: mozRTCPeerConnection;

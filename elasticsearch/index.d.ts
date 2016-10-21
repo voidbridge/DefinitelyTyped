@@ -3,7 +3,7 @@
 // Definitions by: Casper Skydt <https://github.com/CasperSkydt>, Blake Smith <https://github.com/bfsmith>, Dave Dunkin <https://github.com/ddunkin>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare module Elasticsearch {
+declare namespace Elasticsearch {
     export class Client {
         constructor(params: ConfigOptions);
         indices: Indices;
@@ -60,7 +60,7 @@ declare module Elasticsearch {
         refresh(params: IndicesRefreshParams): PromiseLike<any>;
     }
 
-    export interface ConfigOptions{
+    export interface ConfigOptions {
         host?: any;
         hosts?: any;
         log?: any;
@@ -86,9 +86,9 @@ declare module Elasticsearch {
     }
 
     export interface Explanation {
-        value: number,
-        description: string,
-        details: Explanation[]
+        value: number;
+        description: string;
+        details: Explanation[];
     }
 
     export interface GenericParams {
@@ -102,7 +102,7 @@ declare module Elasticsearch {
 
     export interface BulkIndexDocumentsParams extends GenericParams {
         refresh?: boolean;
-        routing? : string;
+        routing?: string;
         timeout?: number | Date;
         type?: string;
         fields?: string | string[] | boolean;
@@ -261,32 +261,32 @@ declare module Elasticsearch {
     }
 
     export interface SearchResponse<T> {
-        took: number,
-        timed_out: boolean,
-        _scroll_id?: string,
+        took: number;
+        timed_out: boolean;
+        _scroll_id?: string;
         _shards: {
-            total: number,
-            successful: number,
-            failed: number
-        },
+            total: number;
+            successful: number;
+            failed: number;
+        };
         hits: {
-            total: number,
-            max_score: number,
+            total: number;
+            max_score: number;
             hits: {
-                _index: string,
-                _type: string,
-                _id: string,
-                _score: number,
-                _source: T,
-                _version: number,
-                _explanation?: Explanation,
-                fields?: any,
-                highlight?: any,
-                inner_hits?: any
+                _index: string;
+                _type: string;
+                _id: string;
+                _score: number;
+                _source: T;
+                _version: number;
+                _explanation?: Explanation;
+                fields?: any;
+                highlight?: any;
+                inner_hits?: any;
             }[]
-        },
-        aggregations?: any
-    } 
+        };
+        aggregations?: any;
+    }
 
     export interface MSearchParams extends GenericParams {
         index?: string | string[] | Boolean;
@@ -345,7 +345,7 @@ declare module Elasticsearch {
         retryOnConflict?: Number;
         refresh?: Boolean;
         parent?: string;
-        lang?:string;
+        lang?: string;
         fields?: string | string[] | Boolean;
         consistensy?: string;
     }
@@ -363,7 +363,7 @@ declare module Elasticsearch {
 
     export interface Cat {
         health(params: CatHealthOptions, callback: (error: any, response: any) => void): void;
-        health(params: CatHealthOptions): PromiseLike<any>
+        health(params: CatHealthOptions): PromiseLike<any>;
     }
 
     export interface CatHealthOptions extends GenericParams {

@@ -36,7 +36,7 @@ namespace LocalForageTest {
     localForage.getItem<string>("key").then((str: string) => {
         let newStr: string = str;
     });
-  
+
     localForage.setItem("key", "value",(err: any, str: string) => {
         let newError: any = err;
         let newStr: string = str
@@ -45,14 +45,14 @@ namespace LocalForageTest {
     localForage.setItem("key", "value").then((str: string) => {
         let newStr: string = str;
     });
-  
+
     localForage.removeItem("key",(err: any) => {
         let newError: any = err;
     });
 
     localForage.removeItem("key").then(() => {
     });
-    
+
     {
         let config: boolean;
 
@@ -64,7 +64,7 @@ namespace LocalForageTest {
 
     {
         let store: LocalForage;
-    
+
         store = localForage.createInstance({
         name: "da instance",
         driver: localForage.LOCALSTORAGE

@@ -20,7 +20,7 @@ export class EnvironmentCredentials extends Credentials {
     constructor(profile: string);
 }
 
-export module CognitoIdentity {
+export namespace CognitoIdentity {
     export interface CognitoIdentityCredentialsParams {
         IdentityPoolId?: string;
         AccountId?: string;
@@ -481,7 +481,7 @@ export declare class DynamoDB {
 
 // ==========================================================
 
-export declare module DynamoDB {
+export namespace DynamoDB {
 
     interface _DDBDC_Generic {
         TableName: string;
@@ -489,7 +489,7 @@ export declare module DynamoDB {
         ReturnConsumedCapacity?: "INDEXES" | "TOTAL" | "NONE";
     }
 
-    type _DDBDC_ComparisonOperator = "EQ" | "NE" | "IN" | "LE" | "LT" | "GE" | "GT" | "BETWEEN" | "NOT_NULL" | "NULL" | "CONTAINS" | "NOT_CONTAINS" | "BEGINS_WITH"
+    type _DDBDC_ComparisonOperator = "EQ" | "NE" | "IN" | "LE" | "LT" | "GE" | "GT" | "BETWEEN" | "NOT_NULL" | "NULL" | "CONTAINS" | "NOT_CONTAINS" | "BEGINS_WITH";
     type _DDBDC_Keys = { [someKey: string]: any };
     type _DDBDC_KeyComparison = {
         [someKey: string]: {
@@ -517,7 +517,7 @@ export declare module DynamoDB {
                 Exists: boolean;
           Value?: any;
             }
-        }
+        };
     }
 
     interface UpdateParam extends _DDBDC_Writer {
@@ -527,7 +527,7 @@ export declare module DynamoDB {
                 Action: "PUT" | "ADD" | "DELETE";
                 Value: any
             }
-        }
+        };
     }
 
     interface QueryParam extends _DDBDC_Reader {
@@ -579,7 +579,7 @@ export declare module DynamoDB {
 
 // ===========================================================
 
-export module CloudFormation {
+export namespace CloudFormation {
     export interface CancelUpdateStackParams {
         StackName: string;
     }
@@ -786,7 +786,7 @@ export module CloudFormation {
 
 // ===========================================================
 
-export declare module Lambda {
+export namespace Lambda {
     export interface AddPermissionParams {
         Action: string;
         FunctionName: string;
@@ -808,7 +808,7 @@ export declare module Lambda {
         FunctionName: string;
         StartingPosition: string; /* TRIM_HORIZON | LATEST */
         BatchSize?: number;
-        Enabled?: boolean
+        Enabled?: boolean;
     }
 
     export interface CreateFunctionParams {
@@ -817,7 +817,7 @@ export declare module Lambda {
             S3Key?: string;
             S3ObjectVersion?: string;
             ZipFile?: any; // new Buffer('...') || string;
-        },
+        };
         FunctionName: string;
         Handler: string;
         Role: string;
@@ -829,7 +829,7 @@ export declare module Lambda {
         VpcConfig?: {
             SecurityGroupIds?: string[];
             SubnetIds?: string[];
-        }
+        };
     }
 
     export interface DeleteAliasParams {
@@ -872,7 +872,7 @@ export declare module Lambda {
     export interface InvokeParams {
         FunctionName: string;
         ClientContext?: string;
-        InvocationType?: string;/* 'Event | RequestResponse | DryRun' */
+        InvocationType?: string; /* 'Event | RequestResponse | DryRun' */
         LogType?: string; /* 'None | Tail' */
         Payload?: any; /* new Buffer('...') || string */
         Qualifier?: string;
@@ -882,25 +882,25 @@ export declare module Lambda {
         FunctionName: string;
         FunctionVersion?: string;
         Marker?: string;
-        MaxItems?: number
+        MaxItems?: number;
     }
 
     export interface ListEventSourceMappingsParams {
         EventSourceArn?: string;
         FunctionName?: string;
         Marker?: string;
-        MaxItems?: number
+        MaxItems?: number;
     }
 
     export interface ListFunctionsParams {
         Marker?: string;
-        MaxItems?: number
+        MaxItems?: number;
     }
 
     export interface ListVersionsByFunctionParams {
         FunctionName: string;
         Marker?: string;
-        MaxItems?: number
+        MaxItems?: number;
     }
 
     export interface PublishVersionParams {
@@ -949,11 +949,11 @@ export declare module Lambda {
         VpcConfig?: {
             SecurityGroupIds?: string[];
             SubnetIds?: string[];
-        }
+        };
     }
 }
 
-export module AutoScaling {
+export namespace AutoScaling {
     export interface AutoScalingOptions {
         params?: any;
         endpoint?: string;
@@ -1301,7 +1301,7 @@ export module AutoScaling {
     }
 }
 
-export module SQS {
+export namespace SQS {
     export interface SqsOptions {
         params?: any;
         endpoint?: string;
@@ -1337,14 +1337,14 @@ export module SQS {
     }
 
     export interface ChangeMessageVisibilityParams {
-        QueueUrl: string,
-        ReceiptHandle: string,
-        VisibilityTimeout: number
+        QueueUrl: string;
+        ReceiptHandle: string;
+        VisibilityTimeout: number;
     }
 
     export interface ChangeMessageVisibilityBatchParams {
-        QueueUrl: string,
-        Entries: { Id: string; ReceiptHandle: string; VisibilityTimeout?: number; }[]
+        QueueUrl: string;
+        Entries: { Id: string; ReceiptHandle: string; VisibilityTimeout?: number; }[];
     }
 
     export interface ChangeMessageVisibilityBatchResponse {
@@ -1356,7 +1356,7 @@ export module SQS {
         QueueUrl?: string;
         MessageBody: string;
         DelaySeconds?: number;
-        MessageAttributes?: { [name: string]: MessageAttribute; }
+        MessageAttributes?: { [name: string]: MessageAttribute; };
     }
 
     export interface ReceiveMessageParams {
@@ -1392,7 +1392,7 @@ export module SQS {
         Id: string;
         MessageBody: string;
         DelaySeconds?: number;
-        MessageAttributes?: { [name: string]: MessageAttribute; }
+        MessageAttributes?: { [name: string]: MessageAttribute; };
     }
 
     export interface CreateQueueParams {
@@ -1442,7 +1442,7 @@ export module SQS {
         Body: string;
         Attributes: { [name: string]: any };
         MD5OfMessageAttributes: string;
-        MessageAttributes: { [name: string]: MessageAttribute; }
+        MessageAttributes: { [name: string]: MessageAttribute; };
     }
 
     export interface MessageAttribute {
@@ -1492,7 +1492,7 @@ export module SQS {
 
 }
 
-export declare module SES {
+export namespace SES {
 
     export interface Client {
         config: ClientConfig;
@@ -1535,7 +1535,7 @@ export declare module SES {
 
 }
 
-export declare module Swf {
+export namespace Swf {
 
     export interface Client {
         //constructor(options?: any);
@@ -2146,7 +2146,7 @@ export declare module Swf {
 
 }
 
-export declare module Sns {
+export namespace Sns {
 
     export interface Client {
         config: ClientConfig;
@@ -2189,7 +2189,7 @@ export declare module Sns {
 
 }
 
-export declare module s3 {
+export namespace s3 {
     interface Owner {
         DisplayName: string;
         ID: string;
@@ -2205,7 +2205,7 @@ export declare module s3 {
         ETag: string;
         Size: number;
         StorageClass: "STANDARD" | "REDUCED_REDUNDANCY" | "GLACIER";
-        Owner?: Owner
+        Owner?: Owner;
     }
 
     // This private interface contains the common parts between v1 and v2 of the API Request and is exposed via V1 and V2 subclasses
@@ -2320,7 +2320,7 @@ export declare module s3 {
     }
 }
 
-export declare module ecs {
+export namespace ecs {
     export interface CreateServicesParams {
         desiredCount: number;
         serviceName: string;
@@ -2445,7 +2445,7 @@ export declare module ecs {
     }
 }
 
-export module sts {
+export namespace sts {
     export interface AssumeRoleParams {
         RoleArn: string;
         RoleSessionName: string;
@@ -2499,7 +2499,7 @@ export module sts {
         /**
          * An optional credentials object to fill instead of creating a new object. Useful when modifying an existing credentials object from a refresh call.
          */
-        Credentials?: Credentials
+        Credentials?: Credentials;
     }
 
     export interface DecodeAuthorizationMessageParams {
@@ -2508,12 +2508,12 @@ export module sts {
 
     export interface GetFederationTokenParams {
         Name: string;
-        DurationSeconds?: number,
-        Policy?: string
+        DurationSeconds?: number;
+        Policy?: string;
     }
 
     export interface GetSessionTokenParams {
-        DurationSeconds: number,
+        DurationSeconds: number;
         SerialNumber: string;
         TokenCode: string;
     }

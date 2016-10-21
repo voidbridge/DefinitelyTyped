@@ -1969,7 +1969,7 @@ interface HighchartsDrilldownOptions {
          * @since 3.0.8
          */
         theme?: HighchartsButtonStatesTheme;
-    }
+    };
     /**
      * An array of series configurations for the drill down. Each series configuration uses the same syntax as the
      * series option set. These drilldown series are hidden by default. The drilldown series is linked to the parent
@@ -4458,7 +4458,7 @@ interface HighchartsHeatMapChart extends HighchartsSeriesChart {
          * Options for the hovered series
          */
         hover?: HighchartsBarStates;
-    }
+    };
 }
 
 interface HighchartsLineChart extends HighchartsSeriesChart {
@@ -4770,7 +4770,7 @@ interface HighchartsTreeMapChart extends HighchartsSeriesChart {
          * Options for the hovered series
          */
         hover?: HighchartsBarStates;
-    }
+    };
 }
 
 interface HighchartsWaterFallChart extends HighchartsBarChart {
@@ -5534,8 +5534,7 @@ interface HighchartsGlobalOptions extends HighchartsOptions {
     lang?: HighchartsLangObject;
 }
 
-interface HighchartsDateFormatSpecifiers
-{
+interface HighchartsDateFormatSpecifiers {
     [index: string]: (timestamp: number) => string;
 }
 
@@ -6120,8 +6119,6 @@ interface HighchartsStatic {
 
     map(array: any[], fn: Function): any[];
 }
-
-declare var Highcharts: HighchartsStatic;
 
 /**
  * The Point object is the JavaScript representation of each data point

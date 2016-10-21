@@ -21,7 +21,7 @@ describe("Linq.js tests", function () {
         expect(Enumerable.From(
         [
             { name: "marcin", age:15},
-            { name: "albert", age:51},            
+            { name: "albert", age:51},
             { name: "marcin", age:30},
         ]).OrderBy((p) => p.name).ThenByDescending((p) => p.age).Select((p) => p.name+p.age).ToString(",")).toBe("albert51,marcin30,marcin15");
     });

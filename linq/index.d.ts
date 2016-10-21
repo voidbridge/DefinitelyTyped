@@ -54,7 +54,7 @@ declare namespace linq {
         SelectMany<TCollectionItem, TResult>(collectionSelector: ($: T, i: number) => TCollectionItem[], resultSelector: ($: T, item: TCollectionItem) => TResult): Enumerable<TResult>;
         SelectMany<TCollectionItem, TResult>(collectionSelector: ($: T, i: number) => Enumerable<TCollectionItem>, resultSelector: ($: T, item: TCollectionItem) => TResult): Enumerable<TResult>;
         SelectMany(collectionSelector: string, resultSelector?: string): Enumerable<any>;
-        Where(predicate: ($ : T, i: number) => boolean): Enumerable<T>;
+        Where(predicate: ($: T, i: number) => boolean): Enumerable<T>;
         Where(predicate: string): Enumerable<any>;
         OfType(type: Function): Enumerable<any>;
         Zip(second: any[], selector: (v1: any, v2: any, i: number) => any): Enumerable<any>;
@@ -71,7 +71,7 @@ declare namespace linq {
         GroupJoin(inner: Enumerable<any>, outerKeySelector: (v1: any) => any, innerKeySelector: (v1: any) => any, resultSelector: (v1: any, v2: Enumerable<any>) => any, compareSelector?: (v: any) => any): Enumerable<any>;
         GroupJoin(inner: Enumerable<any>, outerKeySelector: string, innerKeySelector: string, resultSelector: string, compareSelector?: string): Enumerable<any>;
         //Set Methods
-        All(predicate: ($ : T) => boolean): boolean;
+        All(predicate: ($: T) => boolean): boolean;
         All(predicate: string): boolean;
         Any(predicate?: ($: T) => boolean): boolean;
         Any(predicate?: string): boolean;
@@ -109,9 +109,9 @@ declare namespace linq {
         Reverse(): Enumerable<T>;
         Shuffle(): Enumerable<T>;
         //Grouping Methods
-        GroupBy(keySelector: ($: T) => any, elementSelector?: ($: T) => any, resultSelector?: (key: any, e: any) => any, compareSelector?: ($: T) =>any): Enumerable<any>;
+        GroupBy(keySelector: ($: T) => any, elementSelector?: ($: T) => any, resultSelector?: (key: any, e: any) => any, compareSelector?: ($: T) => any): Enumerable<any>;
         GroupBy(keySelector: string, elementSelector?: string, resultSelector?: string, compareSelector?: string): Enumerable<any>;
-        PartitionBy(keySelector: ($: T) => any, elementSelector?: ($: T) => any, resultSelector?: (key: any, e: any) => any, compareSelector?: ($: T) =>any): Enumerable<any>;
+        PartitionBy(keySelector: ($: T) => any, elementSelector?: ($: T) => any, resultSelector?: (key: any, e: any) => any, compareSelector?: ($: T) => any): Enumerable<any>;
         PartitionBy(keySelector: string, elementSelector?: string, resultSelector?: string, compareSelector?: string): Enumerable<any>;
         BufferWithCount(count: number): Enumerable<any>;
         // Aggregate Methods
@@ -180,7 +180,7 @@ declare namespace linq {
         ToDictionary(keySelector: string, elementSelector: string, compareSelector?: string): Dictionary<any, any>;
         ToJSON(replacer?: (key: any, value: any) => any, space?: number): string;
         ToJSON(replacer?: string, space?: number): string;
-        ToString(separator?: string, selector?: ($: T) =>any): string;
+        ToString(separator?: string, selector?: ($: T) => any): string;
         ToString(separator?: string, selector?: string): string;
         //Action Methods
         Do(action: ($: T, i: number) => void ): Enumerable<any>;
@@ -188,9 +188,9 @@ declare namespace linq {
         ForEach(action: ($: T, i: number) => void ): void;
         ForEach(func: ($: T, i: number) => boolean): void;
         ForEach(action_func: string): void;
-        Write(separator?: string, selector?: ($: T) =>any): void;
+        Write(separator?: string, selector?: ($: T) => any): void;
         Write(separator?: string, selector?: string): void;
-        WriteLine(selector?: ($: T) =>any): void;
+        WriteLine(selector?: ($: T) => any): void;
         Force(): void;
         //Functional Methods
         Let(func: (e: Enumerable<any>) => Enumerable<any>): Enumerable<any>;
@@ -202,7 +202,7 @@ declare namespace linq {
         Finally(finallyAction: () => void ): Enumerable<any>;
         Finally(finallyAction: string): Enumerable<any>;
         //For Debug Methods
-        Trace(message?: string, selector?: ($: T) =>any): Enumerable<any>;
+        Trace(message?: string, selector?: ($: T) => any): Enumerable<any>;
         Trace(message?: string, selector?: string): Enumerable<any>;
     }
 

@@ -45,7 +45,7 @@ function trackSearchCallback(error: SpotifyWebApiJs.ErrorObject, results: Spotif
     });
     onlyExplicitTracks.forEach(track => console.log(track.name));
 };
- 
+
 spotify.searchTracks("Love itself", {limit: 5, market: 'DK'}, trackSearchCallback);
 
 
@@ -54,7 +54,7 @@ spotify.searchTracks("Love itself", {limit: 5, market: 'DK'}, trackSearchCallbac
  */
 spotify.getUser('physicaltunes')
 .then(results => {
-    console.log(results.id.toUpperCase(), 
+    console.log(results.id.toUpperCase(),
     'Followers: ' + results.followers.total.toString());
 });
 

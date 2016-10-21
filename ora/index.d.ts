@@ -8,7 +8,7 @@ type Color = 'black' | 'red' | 'green' | 'yellow' | 'blue' | 'magenta' | 'cyan' 
 type Text = string;
 interface Options {
     text?: Text;
-    spinner?: string | { interval?: number; frames: string[]; }
+    spinner?: string | { interval?: number; frames: string[]; };
     color?: Color;
     stream?: any;
 }

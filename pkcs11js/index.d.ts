@@ -31,7 +31,7 @@ interface SlotInfo {
     manufacturerID: string;
     flags: number;
     hardwareVersion: Version;
-    firmwareVersion: Version
+    firmwareVersion: Version;
 }
 
 interface TokenInfo {
@@ -48,7 +48,7 @@ interface TokenInfo {
     minPinLen: number;
     hardwareVersion: Version;
     firmwareVersion: Version;
-    utcTime: string
+    utcTime: string;
     totalPublicMemory: number;
     freePublicMemory: number;
     totalPrivateMemory: number;
@@ -84,8 +84,8 @@ interface Mechanism {
 
 interface IParapms {
     /**
-     * Type of crypto param. Uses consts CK_PARAMS_* 
-     * 
+     * Type of crypto param. Uses consts CK_PARAMS_*
+     *
      * @type {number}
      */
     type: number;
@@ -130,28 +130,28 @@ interface RsaPSS extends IParapms {
 }
 
 interface KeyPair {
-    privateKey: Handle,
-    publicKey: Handle,
+    privateKey: Handle;
+    publicKey: Handle;
 }
 
 export class PKCS11 {
     /**
-     * Loads dynamic library with PKCS#11 interface 
-     * 
+     * Loads dynamic library with PKCS#11 interface
+     *
      * @param {string} path
      */
     load(path: string): void;
     /**
-     * Initializes the Cryptoki library 
+     * Initializes the Cryptoki library
      */
     C_Initialize(): void;
     /**
-     * Indicates that an application is done with the Cryptoki library 
+     * Indicates that an application is done with the Cryptoki library
      */
     C_Finalize(): void;
     /**
-     * Returns general information about Cryptoki 
-     * 
+     * Returns general information about Cryptoki
+     *
      * @returns {ModuleInfo}
      */
     C_GetInfo(): ModuleInfo;
@@ -159,29 +159,29 @@ export class PKCS11 {
     /* Slot and token management */
 
     /**
-     * obtains a list of slots in the system 
-     * 
+     * obtains a list of slots in the system
+     *
      * @param {boolean} [tokenPresent] Only slots with tokens?
      * @returns {Handle[]} Array of slot IDs
      */
     C_GetSlotList(tokenPresent?: boolean): Handle[];
     /**
-     * Obtains information about a particular slot in the system 
-     * 
+     * Obtains information about a particular slot in the system
+     *
      * @param {Handle} slot The ID of the slot
      * @returns {SlotInfo} Receives the slot information
      */
     C_GetSlotInfo(slot: Handle): SlotInfo;
     /**
-     * Obtains information about a particular token in the system 
-     * 
+     * Obtains information about a particular token in the system
+     *
      * @param {Handle} slot ID of the token's slot
      * @returns {TokenInfo} Receives the token information
      */
     C_GetTokenInfo(slot: Handle): TokenInfo;
     /**
-     * Initializes a token 
-     * 
+     * Initializes a token
+     *
      * @param {Handle} slot ID of the token's slot
      * @param {string} [pin] The SO's initial PIN
      * @returns {string} 32-byte token label (blank padded)
@@ -189,29 +189,29 @@ export class PKCS11 {
     C_InitToken(slot: Handle, pin?: string): string;
     /**
      * Initializes the normal user's PIN
-     * 
+     *
      * @param {Handle} session The session's handle
      * @param {string} [pin] The normal user's PIN
      */
     C_InitPIN(session: Handle, pin?: string): void;
     /**
      * Modifies the PIN of the user who is logged in
-     * 
+     *
      * @param {Handle} session The session's handle
      * @param {string} oldPin The old PIN
      * @param {string} newPin The new PIN
      */
     C_SetPIN(session: Handle, oldPin: string, newPin: string): void;
     /**
-     * Obtains a list of mechanism types supported by a token 
-     * 
+     * Obtains a list of mechanism types supported by a token
+     *
      * @param {Handle} slot ID of token's slot
      * @returns {Handle[]} Gets mech. array
      */
     C_GetMechanismList(slot: Handle): Handle[];
     /**
-     * Obtains information about a particular mechanism possibly supported by a token 
-     * 
+     * Obtains information about a particular mechanism possibly supported by a token
+     *
      * @param {Handle} slot ID of the token's slot
      * @param {Handle} mech Type of mechanism
      * @returns {MechanismInfo} Receives mechanism info
@@ -222,34 +222,34 @@ export class PKCS11 {
 
     /**
      * Opens a session between an application and a token
-     * 
+     *
      * @param {Handle} slot The slot's ID
      * @param {number} flags From CK_SESSION_INFO
      * @returns {Handle} Gets session handle
      */
     C_OpenSession(slot: Handle, flags: number): Handle;
     /**
-     * Closes a session between an application and a token 
-     * 
+     * Closes a session between an application and a token
+     *
      * @param {Handle} session The session's handle
      */
     C_CloseSession(session: Handle): void;
     /**
-     * Сloses all sessions with a token 
-     * 
+     * Сloses all sessions with a token
+     *
      * @param {Handle} slot The token's slot
      */
     C_CloseAllSessions(slot: Handle): void;
     /**
      * Obtains information about the session
-     * 
+     *
      * @param {Handle} session The session's handle
      * @returns {SessionInfo} Receives session info
      */
     C_GetSessionInfo(session: Handle): SessionInfo;
     /**
-     * Logs a user into a token 
-     * 
+     * Logs a user into a token
+     *
      * @param {Handle} session The session's handle
      * @param {number} userType The user type
      * @param {string} [pin] The user's PIN
@@ -257,7 +257,7 @@ export class PKCS11 {
     C_Login(session: Handle, userType: number, pin?: string): void;
     /**
      * Logs a user out from a token
-     * 
+     *
      * @param {Handle} session The session's handle
      */
     C_Logout(session: Handle): void;
@@ -266,15 +266,15 @@ export class PKCS11 {
 
     /**
      * Creates a new object
-     * 
+     *
      * @param {Handle} session The session's handle
      * @param {Template} template The object's template
      * @returns {Handle} Gets new object's handle
      */
     C_CreateObject(session: Handle, template: Template): Handle;
     /**
-     * Copies an object, creating a new object for the copy 
-     * 
+     * Copies an object, creating a new object for the copy
+     *
      * @param {Handle} session The session's handle
      * @param {Handle} object The object's handle
      * @param {Template} template Template for new object
@@ -283,14 +283,14 @@ export class PKCS11 {
     C_CopyObject(session: Handle, object: Handle, template: Template): Handle;
     /**
      * Destroys an object
-     * 
+     *
      * @param {Handle} session The session's handle
      * @param {Handle} object The object's handle
      */
     C_DestroyObject(session: Handle, object: Handle): void;
     /**
      * Gets the size of an object in bytes
-     * 
+     *
      * @param {Handle} session The session's handle
      * @param {Handle} object The object's handle
      * @returns {number} Receives size of object
@@ -298,7 +298,7 @@ export class PKCS11 {
     C_GetObjectSize(session: Handle, object: Handle): number;
     /**
      * Initializes a search for token and session objects that match a template
-     * 
+     *
      * @param {Handle} session The session's handle
      * @param {Template} template Attribute values to match
      */
@@ -306,8 +306,8 @@ export class PKCS11 {
     /**
      * Continues a search for token and session
      * objects that match a template, obtaining additional object
-     * handles 
-     * 
+     * handles
+     *
      * @param {Handle} session Session's handle
      * @returns {Handle} gets Object's handle. If Object is not found
      * the result is 0
@@ -315,23 +315,23 @@ export class PKCS11 {
     C_FindObjects(session: Handle): Handle;
     /**
      * Finishes a search for token and session objects
-     * 
+     *
      * @param {Handle} session The session's handle
      */
     C_FindObjectsFinal(session: Handle): void;
     /**
-     * Obtains the value of one or more object attributes 
-     * 
+     * Obtains the value of one or more object attributes
+     *
      * @param {Handle} session The session's handle
      * @param {Handle} object The object's handle
      * @param {Template} template Specifies attrs; gets vals
-     * @returns {Template} Receives attributes with values 
+     * @returns {Template} Receives attributes with values
      */
     C_GetAttributeValue(session: Handle, object: Handle, template: Template): Template;
     /**
      * Modifies the value of one or more object attributes
-     * 
-     * @param {Handle} session The session's handle 
+     *
+     * @param {Handle} session The session's handle
      * @param {Handle} object The object's handle
      * @param {Template} template Specifies attrs and values
      */
@@ -341,15 +341,15 @@ export class PKCS11 {
 
     /**
      * Initializes an encryption operation
-     * 
+     *
      * @param {Handle} session The session's handle
      * @param {Mechanism} mechanism The encryption mechanism
      * @param {Handle} key Handle of encryption key
      */
     C_EncryptInit(session: Handle, mechanism: Mechanism, key: Handle): void;
     /**
-     * Encrypts single-part data 
-     * 
+     * Encrypts single-part data
+     *
      * @param {Handle} session Session's handle
      * @param {Buffer} inData Incoming data
      * @param {Buffer} outData Comming data
@@ -358,7 +358,7 @@ export class PKCS11 {
     C_Encrypt(session: Handle, inData: Buffer, outData: Buffer): Buffer;
     /**
      * Encrypts single-part data
-     * 
+     *
      * @param {Handle} session Session's handle
      * @param {Buffer} inData Incoming data
      * @param {Buffer} outData Comming data
@@ -367,7 +367,7 @@ export class PKCS11 {
     C_Encrypt(session: Handle, inData: Buffer, outData: Buffer, cb: (error: Error, data: Buffer) => void): void;
     /**
      * Continues a multiple-part encryption operation
-     * 
+     *
      * @param {Handle} session Session's handle
      * @param {Buffer} inData Incoming data
      * @param {Buffer} outData Coming data
@@ -376,15 +376,15 @@ export class PKCS11 {
     C_EncryptUpdate(session: Handle, inData: Buffer, outData: Buffer): Buffer;
     /**
      * Finishes a multiple-part encryption operation
-     * 
+     *
      * @param {Handle} session Session's handle
      * @param {Buffer} outData Last coming data
      * @returns {Buffer} Sliced coming data
      */
     C_EncryptFinal(session: Handle, outData: Buffer): Buffer;
     /**
-     * Initializes a decryption operation 
-     * 
+     * Initializes a decryption operation
+     *
      * @param {Handle} session The session's handle
      * @param {Mechanism} mechanism The decryption mechanism
      * @param {Handle} key Handle of decryption key
@@ -392,7 +392,7 @@ export class PKCS11 {
     C_DecryptInit(session: Handle, mechanism: Mechanism, key: Handle): void;
     /**
      * Decrypts encrypted data in a single part
-     * 
+     *
      * @param {Handle} session Session's handle
      * @param {Buffer} inData Incoming data
      * @param {Buffer} outData Coming data
@@ -401,7 +401,7 @@ export class PKCS11 {
     C_Decrypt(session: Handle, inData: Buffer, outData: Buffer): Buffer;
     /**
      * Decrypts encrypted data in a single part
-     * 
+     *
      * @param {Handle} session Session's handle
      * @param {Buffer} inData Incoming data
      * @param {Buffer} outData Coming data
@@ -410,7 +410,7 @@ export class PKCS11 {
     C_Decrypt(session: Handle, inData: Buffer, outData: Buffer, cb: (error: Error, data: Buffer) => void): void;
     /**
      * continues a multiple-part decryption operation
-     * 
+     *
      * @param {Handle} session Session's handle
      * @param {Buffer} inData Incoming data
      * @param {Buffer} outData Coming data
@@ -419,7 +419,7 @@ export class PKCS11 {
     C_DecryptUpdate(session: Handle, inData: Buffer, outData: Buffer): Buffer;
     /**
      * Finishes a multiple-part decryption operation
-     * 
+     *
      * @param {Handle} session Session's handle
      * @param {Buffer} outData Last part of coming data
      * @returns {Buffer} Coming data
@@ -430,14 +430,14 @@ export class PKCS11 {
 
     /**
      * Initializes a message-digesting operation
-     * 
+     *
      * @param {Handle} session Session's handle
      * @param {Mechanism} mechanism Digesting mechanism
      */
     C_DigestInit(session: Handle, mechanism: Mechanism): void;
     /**
      * Digests data in a single part
-     * 
+     *
      * @param {Handle} session Session's handle
      * @param {Buffer} inData Incoming data
      * @param {Buffer} outData Coming data
@@ -446,26 +446,26 @@ export class PKCS11 {
     C_Digest(session: Handle, inData: Buffer, outData: Buffer): Buffer;
     /**
      * Digests data in a single part
-     * 
+     *
      * @param {Handle} session Session's handle
      * @param {Buffer} inData Incoming data
      * @param {Buffer} outData Coming data
      * @param {(error: Error, data: Buffer) => void} cb Async callback with sliced coming data
-     
+
      */
     C_Digest(session: Handle, inData: Buffer, outData: Buffer, cb: (error: Error, data: Buffer) => void): void;
     /**
-     * continues a multiple-part message-digesting operation 
+     * continues a multiple-part message-digesting operation
      * operation, by digesting the value of a secret key as part of
-     * the data already digested 
-     * 
+     * the data already digested
+     *
      * @param {Handle} session Session's handle
      * @param {Buffer} inData Incoming data
      */
     C_DigestUpdate(session: Handle, inData: Buffer): void;
     /**
      * Finishes a multiple-part message-digesting operation
-     * 
+     *
      * @param {Handle} session Session's handle
      * @param {Buffer} outData Coming data
      * @returns {Buffer} Sliced coming data
@@ -479,8 +479,8 @@ export class PKCS11 {
      * initializes a signature (private key encryption)
      * operation, where the signature is (will be) an appendix to
      * the data, and plaintext cannot be recovered from the
-     *signature 
-     * 
+     *signature
+     *
      * @param {Handle} session Session's handle
      * @param {Mechanism} mechanism Signature mechanism
      * @param {Handle} key Handle of signature key
@@ -490,7 +490,7 @@ export class PKCS11 {
      * Signs (encrypts with private key) data in a single
      * part, where the signature is (will be) an appendix to the
      * data, and plaintext cannot be recovered from the signature
-     * 
+     *
      * @param {Handle} session Session's handle
      * @param {Buffer} inData Incoming data
      * @param {Buffer} outData Coming data
@@ -501,7 +501,7 @@ export class PKCS11 {
      * Signs (encrypts with private key) data in a single
      * part, where the signature is (will be) an appendix to the
      * data, and plaintext cannot be recovered from the signature
-     * 
+     *
      * @param {Handle} session Session's handle
      * @param {Buffer} inData Incoming data
      * @param {Buffer} outData Coming data
@@ -512,7 +512,7 @@ export class PKCS11 {
      * continues a multiple-part signature operation,
      * where the signature is (will be) an appendix to the data,
      * and plaintext cannot be recovered from the signature
-     * 
+     *
      * @param {Handle} session Session's handle
      * @param {Buffer} inData Incoming data
      */
@@ -520,7 +520,7 @@ export class PKCS11 {
     /**
      * Finishes a multiple-part signature operation,
      * returning the signature
-     * 
+     *
      * @param {Handle} session Session's handle
      * @param {Buffer} outData Coming data
      * @returns {Buffer} Sliced coming data
@@ -534,8 +534,8 @@ export class PKCS11 {
     /**
      * initializes a verification operation, where the
      * signature is an appendix to the data, and plaintext cannot
-     * cannot be recovered from the signature (e.g. DSA) 
-     * 
+     * cannot be recovered from the signature (e.g. DSA)
+     *
      * @param {Handle} session Session's handle
      * @param {Mechanism} mechanism Verification mechanism
      * @param {Handle} key Verification key
@@ -545,7 +545,7 @@ export class PKCS11 {
      * Verifies a signature in a single-part operation,
      * where the signature is an appendix to the data, and plaintext
      * cannot be recovered from the signature
-     * 
+     *
      * @param {Handle} session Session's handle
      * @param {Buffer} inData Incoming data
      * @param {Buffer} signature Signature to verify
@@ -556,7 +556,7 @@ export class PKCS11 {
      * Verifies a signature in a single-part operation,
      * where the signature is an appendix to the data, and plaintext
      * cannot be recovered from the signature
-     * 
+     *
      * @param {Handle} session Session's handle
      * @param {Buffer} inData Incoming data
      * @param {Buffer} signature Signature to verify
@@ -567,7 +567,7 @@ export class PKCS11 {
      * Continues a multiple-part verification
      * operation, where the signature is an appendix to the data,
      * and plaintext cannot be recovered from the signature
-     * 
+     *
      * @param {Handle} session Session's handle
      * @param {Buffer} inData Incoming data
      */
@@ -575,7 +575,7 @@ export class PKCS11 {
     /**
      * Finishes a multiple-part verification
      * operation, checking the signature
-     * 
+     *
      * @param {Handle} session Session's handle
      * @param {Buffer} signature Signature to verify
      * @returns {boolean}
@@ -588,7 +588,7 @@ export class PKCS11 {
 
     /**
      * Generates a secret key, creating a new key object
-     * 
+     *
      * @param {Handle} session Session's handle
      * @param {Mechanism} mechanism Key generation mechanism
      * @param {Template} template Template for new key
@@ -597,7 +597,7 @@ export class PKCS11 {
     C_GenerateKey(session: Handle, mechanism: Mechanism, template: Template): Handle;
     /**
      * Generates a secret key, creating a new key object
-     * 
+     *
      * @param {Handle} session Session's handle
      * @param {Mechanism} mechanism Key generation mechanism
      * @param {Template} template Template for new key
@@ -607,8 +607,8 @@ export class PKCS11 {
     /**
      * Generates a public-key/private-key pair,
      * creating new key objects
-     * 
-     * @param {Handle} session Session's handle 
+     *
+     * @param {Handle} session Session's handle
      * @param {Mechanism} mechanism Key generation mechanism
      * @param {Template} publicTmpl Template for public key
      * @param {Template} privateTmpl Template for private key
@@ -618,8 +618,8 @@ export class PKCS11 {
     /**
      * Generates a public-key/private-key pair,
      * creating new key objects
-     * 
-     * @param {Handle} session Session's handle 
+     *
+     * @param {Handle} session Session's handle
      * @param {Mechanism} mechanism Key generation mechanism
      * @param {Template} publicTmpl Template for public key
      * @param {Template} privateTmpl Template for private key
@@ -627,8 +627,8 @@ export class PKCS11 {
      */
     C_GenerateKeyPair(session: Handle, mechanism: Mechanism, publicTmpl: Template, privateTmpl: Template, cb: (error: Error, keys: KeyPair) => void): void;
     /**
-     * Wraps (i.e., encrypts) a key 
-     * 
+     * Wraps (i.e., encrypts) a key
+     *
      * @param {Handle} session Session's handle
      * @param {Mechanism} mechanism Wrapping mechanism
      * @param {Handle} wrappingKey Wrapping key
@@ -638,8 +638,8 @@ export class PKCS11 {
      */
     C_WrapKey(session: Handle, mechanism: Mechanism, wrappingKey: Handle, key: Handle, wrappedKey: Buffer): Buffer;
     /**
-     * Wraps (i.e., encrypts) a key 
-     * 
+     * Wraps (i.e., encrypts) a key
+     *
      * @param {Handle} session Session's handle
      * @param {Mechanism} mechanism Wrapping mechanism
      * @param {Handle} wrappingKey Wrapping key
@@ -650,7 +650,7 @@ export class PKCS11 {
     C_WrapKey(session: Handle, mechanism: Mechanism, wrappingKey: Handle, key: Handle, wrappedKey: Buffer, cb: (error: Error, wrappedKey: Buffer) => void): void;
     /**
      * Unwraps (decrypts) a wrapped key, creating a new key object
-     * 
+     *
      * @param {Handle} session Session's handle
      * @param {Mechanism} mechanism Unwrapping mechanism
      * @param {Handle} unwrappingKey Unwrapping key
@@ -661,7 +661,7 @@ export class PKCS11 {
     C_UnwrapKey(session: Handle, mechanism: Mechanism, unwrappingKey: Handle, wrappedKey: Buffer, template: Template): Handle;
     /**
      * Unwraps (decrypts) a wrapped key, creating a new key object
-     * 
+     *
      * @param {Handle} session Session's handle
      * @param {Mechanism} mechanism Unwrapping mechanism
      * @param {Handle} unwrappingKey Unwrapping key
@@ -672,7 +672,7 @@ export class PKCS11 {
     C_UnwrapKey(session: Handle, mechanism: Mechanism, unwrappingKey: Handle, wrappedKey: Buffer, template: Template, cb: (error: Error, key: Handle) => void): void;
     /**
      * Derives a key from a base key, creating a new key object
-     * 
+     *
      * @param {Handle} session Session's handle
      * @param {Mechanism} mechanism Key derivation mechanism
      * @param {Handle} key Base key
@@ -682,7 +682,7 @@ export class PKCS11 {
     C_DeriveKey(session: Handle, mechanism: Mechanism, key: Handle, template: Template): Handle;
     /**
      * Derives a key from a base key, creating a new key object
-     * 
+     *
      * @param {Handle} session Session's handle
      * @param {Mechanism} mechanism Key derivation mechanism
      * @param {Handle} key Base key
@@ -691,8 +691,8 @@ export class PKCS11 {
      */
     C_DeriveKey(session: Handle, mechanism: Mechanism, key: Handle, template: Template, cb: (error: Error, hKey: Handle) => void): void;
     /**
-     * Mixes additional seed material into the token's random number generator 
-     * 
+     * Mixes additional seed material into the token's random number generator
+     *
      * @param {Handle} session Session's handle
      * @param {Buffer} buf The seed material
      * @returns {Buffer} Seeded data
@@ -700,7 +700,7 @@ export class PKCS11 {
     C_SeedRandom(session: Handle, buf: Buffer): Buffer;
     /**
      * Generates random data
-     * 
+     *
      * @param {Handle} session Session's handle
      * @param {Buffer} buf Init buffer
      * @returns {Buffer} Receives the random data

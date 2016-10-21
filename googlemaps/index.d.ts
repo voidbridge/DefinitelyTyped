@@ -189,7 +189,7 @@ declare namespace google.maps {
         toGeoJson(callback: (feature: Object) => void): void;
     }
 
-    export module Data {
+    export namespace Data {
         export interface DataOptions {
             controlPosition?: ControlPosition;
             controls?: string[];
@@ -394,7 +394,7 @@ declare namespace google.maps {
          */
         icon?: string|Icon|Symbol;
         /**
-         * Adds a label to the marker. The label can either be a string, or a MarkerLabel object. 
+         * Adds a label to the marker. The label can either be a string, or a MarkerLabel object.
          * Only the first character of the string will be displayed.
          * @type {(string|MarkerLabel)}
          */
@@ -489,7 +489,7 @@ declare namespace google.maps {
         /** The text to be displayed in the label. Only the first character of this string will be shown. */
         text?: string;
     }
-    
+
     export interface MarkerShape {
         coords?: number[];
         type?: string;
@@ -1025,8 +1025,7 @@ declare namespace google.maps {
         TRAM
     }
 
-    export enum TransitRoutePreference
-    {
+    export enum TransitRoutePreference {
         FEWER_TRANSFERS,
         LESS_WALKING
     }
@@ -1035,11 +1034,10 @@ declare namespace google.maps {
 
     export interface DrivingOptions {
         departureTime: Date;
-        trafficModel: TrafficModel
+        trafficModel: TrafficModel;
     }
 
-    export enum TrafficModel
-    {
+    export enum TrafficModel {
         BEST_GUESS,
         OPTIMISTIC,
         PESSIMISTIC
@@ -1158,8 +1156,7 @@ declare namespace google.maps {
         type: VehicleType;
     }
 
-    export enum VehicleType
-    {
+    export enum VehicleType {
         BUS,
         CABLE_CAR,
         COMMUTER_TRAIN,
@@ -1295,7 +1292,7 @@ declare namespace google.maps {
         setPlace(place: Place): void;
     }
 
-    export interface SaveWidgetOptions{
+    export interface SaveWidgetOptions {
         attribution?: Attribution;
         place?: Place;
     }
@@ -1584,7 +1581,7 @@ declare namespace google.maps {
         constructor(container: Element, opts?: StreetViewPanoramaOptions);
         controls: MVCArray[]; // Array<MVCArray<Node>>
         getLinks(): StreetViewLink[];
-        getLocation():  StreetViewLocation;
+        getLocation(): StreetViewLocation;
         getPano(): string;
         getPhotographerPov(): StreetViewPov;
         getPosition(): LatLng;
@@ -1799,8 +1796,8 @@ declare namespace google.maps {
         toUrlValue(precision?: number): string;
     }
 
-    export type LatLngLiteral = { lat: number; lng: number }
-    export type LatLngBoundsLiteral = { east: number; north: number; south: number; west: number }
+    export type LatLngLiteral = { lat: number; lng: number };
+    export type LatLngBoundsLiteral = { east: number; north: number; south: number; west: number };
 
     export class LatLngBounds {
         constructor(sw?: LatLng|LatLngLiteral, ne?: LatLng|LatLngLiteral);
@@ -1868,7 +1865,7 @@ declare namespace google.maps {
     }
 
     /***** Geometry Library *****/
-    export module geometry {
+    export namespace geometry {
         export class encoding {
             static decodePath(encodedPath: string): LatLng[];
             static encodePath(path: any[]): string; // LatLng[]|MVCArray<LatLng>
@@ -1933,7 +1930,7 @@ declare namespace google.maps {
     }
 
     /***** AdSense Library *****/
-    export module adsense {
+    export namespace adsense {
         export class AdUnit extends MVCObject {
             constructor(container: Element, opts: AdUnitOptions);
             getBackgroundColor(): string;
@@ -1994,7 +1991,7 @@ declare namespace google.maps {
     }
 
     /***** Places Library *****/
-    export module places {
+    export namespace places {
         export class Autocomplete extends MVCObject {
             constructor(inputField: HTMLInputElement, opts?: AutocompleteOptions);
             getBounds(): LatLngBounds;
@@ -2192,7 +2189,7 @@ declare namespace google.maps {
     }
 
     /***** Drawing Library *****/
-    export module drawing {
+    export namespace drawing {
         export class DrawingManager extends MVCObject {
             constructor(options?: DrawingManagerOptions);
             getDrawingMode(): OverlayType;
@@ -2234,7 +2231,7 @@ declare namespace google.maps {
     }
 
     /***** Visualization Library *****/
-    export module visualization {
+    export namespace visualization {
         export class MapsEngineLayer extends MVCObject {
             constructor(options: MapsEngineLayerOptions);
             getLayerId(): string;

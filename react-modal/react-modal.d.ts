@@ -15,13 +15,13 @@ declare module "react-modal" {
             overlay: {
                 [key: string]: any;
             }
-        },
-        appElement?: HTMLElement | {},
-        onAfterOpen?: Function,
-        onRequestClose?: Function,
-        closeTimeoutMS?: number,
-        ariaHideApp?: boolean,
-        shouldCloseOnOverlayClick?: boolean
+        };
+        appElement?: HTMLElement | {};
+        onAfterOpen?: Function;
+        onRequestClose?: Function;
+        closeTimeoutMS?: number;
+        ariaHideApp?: boolean;
+        shouldCloseOnOverlayClick?: boolean;
     }
     let ReactModal: React.ClassicComponentClass<ReactModal>;
     export = ReactModal;

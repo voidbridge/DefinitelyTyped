@@ -89,7 +89,7 @@ declare namespace kendo {
         };
     };
 
-    var cultures: {[culture: string] : {
+    var cultures: {[culture: string]: {
             name?: string;
             calendar?: {
                 AM: string[];
@@ -531,7 +531,7 @@ declare namespace kendo.data {
     interface BinderOptions {
     }
 
-    class ObservableObject extends Observable{
+    class ObservableObject extends Observable {
         constructor(value?: any);
         uid: string;
         init(value?: any): void;
@@ -840,7 +840,7 @@ declare namespace kendo.data {
         columns: PivotSchemaColumnAxis;
     }
 
-    interface PivotSchema extends DataSourceSchema{
+    interface PivotSchema extends DataSourceSchema {
         axes?: any;
         catalogs?: any;
         cubes?: any;
@@ -949,7 +949,7 @@ declare namespace kendo.data {
     }
 
     interface DataSourceSchemaWithConstructorModel extends DataSourceSchema {
-        model?:  typeof Model;
+        model?: typeof Model;
     }
 
     interface DataSourceSchemaModel {
@@ -1023,7 +1023,7 @@ declare namespace kendo.data {
         items?: kendo.data.Model[];
     }
 
-    class DataSource extends Observable{
+    class DataSource extends Observable {
         options: DataSourceOptions;
 
         static create(options?: DataSourceOptions): DataSource;
@@ -1326,7 +1326,7 @@ declare namespace kendo.ui {
     function plugin(widget: typeof kendo.ui.Widget, register?: typeof kendo.dataviz.ui, prefix?: String): void;
     function plugin(widget: any, register?: typeof kendo.dataviz.ui, prefix?: String): void;
 
-    class Draggable extends kendo.ui.Widget{
+    class Draggable extends kendo.ui.Widget {
         element: JQuery;
         currentTarget: JQuery;
         constructor(element: Element, options?: DraggableOptions);
@@ -1337,7 +1337,7 @@ declare namespace kendo.ui {
         sender?: Draggable;
     }
 
-    class DropTarget extends kendo.ui.Widget{
+    class DropTarget extends kendo.ui.Widget {
         element: JQuery;
         constructor(element: Element, options?: DropTargetOptions);
         options: DropTargetOptions;
@@ -1367,7 +1367,7 @@ declare namespace kendo.ui {
         draggable?: kendo.ui.Draggable;
     }
 
-    class DropTargetArea extends kendo.ui.Widget{
+    class DropTargetArea extends kendo.ui.Widget {
         element: JQuery;
         constructor(element: Element, options?: DropTargetAreaOptions);
         options: DropTargetAreaOptions;

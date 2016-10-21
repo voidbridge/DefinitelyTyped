@@ -18,7 +18,7 @@ declare module 'react-css-modules' {
         <C extends Function>(Component: C, defaultStyles: StylesObject, options?: TypeOptions): C;
     }
 
-    module CSSModules {
+    namespace CSSModules {
         // Extend your component's Prop interface with this one to get access to `this.props.styles`
         //
         // interface MyComponentProps extends CSSModules.InjectedCSSModuleProps {}

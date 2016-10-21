@@ -43,7 +43,7 @@ app.configure(() => {
   app.use(passport.session());
 });
 
-app.post('/login', 
+app.post('/login',
   passport.authenticate('local', { failureRedirect: '/login', failureFlash: true }),
   function (req, res) {
     res.redirect('/');

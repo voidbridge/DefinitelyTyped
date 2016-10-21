@@ -147,7 +147,7 @@ declare class Flickity {
     * Get the elements of the cells.
     * @returns  Element[]
     */
-    getCellElements() : Element[];
+    getCellElements(): Element[];
 
     //event listeners
 
@@ -161,7 +161,7 @@ declare class Flickity {
     * @param eventName name of event  (@see FlickityEvents class for filckity supported events)
     * @param callback callback funtion to execute when event fires
     */
-    on(eventname: string, callback: (eventt?: Event, cellElement?: Element) => any) : void;
+    on(eventname: string, callback: (eventt?: Event, cellElement?: Element) => any): void;
     /**
     * bind event listener
     * @param eventName name of event  (@see FlickityEvents class for filckity supported events)

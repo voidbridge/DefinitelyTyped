@@ -16,7 +16,7 @@ export interface LineStream extends stream.Transform {
 }
 
 export interface LineStreamCreatable extends LineStream {
-    new (options?: LineStreamOptions): LineStream
+    new (options?: LineStreamOptions): LineStream;
 }
 
 //TODO is it possible to declare static factory functions without name (directly on the module)
@@ -28,8 +28,8 @@ export interface LineStreamCreatable extends LineStream {
 // };
 //
 // TS:
-// ():LineStream; // same as createStream():LineStream
-// (stream:stream.Stream, options?:LineStreamOptions):LineStream; // same as createStream(stream, options?):LineStream
+// (): LineStream; // same as createStream(): LineStream
+// (stream: stream.Stream, options?: LineStreamOptions): LineStream; // same as createStream(stream, options?):LineStream
 
 export declare function createStream(): LineStream;
 export declare function createStream(stream: NodeJS.ReadableStream, options?: LineStreamOptions): LineStream;

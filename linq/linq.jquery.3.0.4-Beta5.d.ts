@@ -6,7 +6,7 @@
 /// <reference types="jquery"/>
 /// <reference path="index.d.ts"/>
 
-declare module linqjs {
+declare namespace linqjs {
     interface IEnumerable<T> {
         tojQuery(): JQuery;
         tojQueryAsArray(): JQuery;

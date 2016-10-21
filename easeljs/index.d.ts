@@ -55,7 +55,7 @@ declare namespace createjs {
 
 
     export class BitmapText extends DisplayObject {
-        constructor(text?:string, spriteSheet?:SpriteSheet);
+        constructor(text?: string, spriteSheet?: SpriteSheet);
 
         static maxPoolSize: number;
 
@@ -389,10 +389,8 @@ declare namespace createjs {
     }
 
 
-    namespace Graphics
-        {
-        export class Arc
-            {
+    namespace Graphics {
+        export class Arc {
             constructor(x: number, y: number, radius: number, startAngle: number, endAngle: number, anticlockwise: number);
 
             // properties
@@ -402,10 +400,9 @@ declare namespace createjs {
             startAngle: number;
             x: number;
             y: number;
-            }
+        }
 
-        export class ArcTo
-            {
+        export class ArcTo {
             constructor(x1: number, y1: number, x2: number, y2: number, radius: number);
 
             // properties
@@ -414,15 +411,11 @@ declare namespace createjs {
             x2: number;
             y2: number;
             radius: number;
-            }
+        }
 
-        export class BeginPath
-            {
+        export class BeginPath { }
 
-            }
-
-        export class BezierCurveTo
-            {
+        export class BezierCurveTo {
             constructor(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number);
 
             // properties
@@ -432,25 +425,20 @@ declare namespace createjs {
             cp2y: number;
             x: number;
             y: number;
-            }
+        }
 
-        export class Circle
-            {
+        export class Circle {
             constructor(x: number, y: number, radius: number);
 
             // properties
             x: number;
             y: number;
             radius: number;
-            }
+        }
 
-        export class ClosePath
-            {
+        export class ClosePath { }
 
-            }
-
-        export class Fill
-            {
+        export class Fill {
             constructor(style: Object, matrix?: Matrix2D);
 
             // properties
@@ -461,27 +449,24 @@ declare namespace createjs {
             bitmap(image: HTMLImageElement, repetition?: string): Fill;
             linearGradient(colors: number[], ratios: number[], x0: number, y0: number, x1: number, y1: number): Fill;
             radialGradient(colors: number[], ratios: number[], x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): Fill;
-            }
+        }
 
-        export class LineTo
-            {
+        export class LineTo {
             constructor(x: number, y: number);
 
             // properties
             x: number;
             y: number;
-            }
+        }
 
-        export class MoveTo
-            {
+        export class MoveTo {
             constructor(x: number, y: number);
 
             x: number;
             y: number;
-            }
+        }
 
-        export class PolyStar
-            {
+        export class PolyStar {
             constructor(x: number, y: number, radius: number, sides: number, pointSize: number, angle: number);
 
             // properties
@@ -491,10 +476,9 @@ declare namespace createjs {
             sides: number;
             x: number;
             y: number;
-            }
+        }
 
-        export class QuadraticCurveTo
-            {
+        export class QuadraticCurveTo {
             constructor(cpx: number, cpy: number, x: number, y: number);
 
             // properties
@@ -502,10 +486,9 @@ declare namespace createjs {
             cpy: number;
             x: number;
             y: number;
-            }
+        }
 
-        export class Rect
-            {
+        export class Rect {
             constructor(x: number, y: number, w: number, h: number);
 
             // properties
@@ -513,10 +496,9 @@ declare namespace createjs {
             y: number;
             w: number;
             h: number;
-            }
+        }
 
-        export class RoundRect
-            {
+        export class RoundRect {
             constructor(x: number, y: number, w: number, h: number, radiusTL: number, radiusTR: number, radiusBR: number, radiusBL: number);
 
             // properties
@@ -528,10 +510,9 @@ declare namespace createjs {
             radiusTR: number;
             radiusBR: number;
             radiusBL: number;
-            }
+        }
 
-        export class Stroke
-            {
+        export class Stroke {
             constructor(style: Object, ignoreScale: boolean);
 
             // properties
@@ -542,10 +523,9 @@ declare namespace createjs {
             bitmap(image: HTMLImageElement, repetition?: string): Stroke;
             linearGradient(colors: number[], ratios: number[], x0: number, y0: number, x1: number, y1: number): Stroke;
             radialGradient(colors: number[], ratios: number[], x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): Stroke;
-            }
+        }
 
-        export class StrokeStyle
-            {
+        export class StrokeStyle {
             constructor(width: number, caps: string, joints: number, miterLimit: number);
 
             // properties
@@ -553,8 +533,8 @@ declare namespace createjs {
             joints: string;
             miterLimit: number;
             width: number;
-            }
         }
+    }
 
 
 
@@ -782,12 +762,11 @@ declare namespace createjs {
 
     }
 
-    export class SpriteContainer extends Container
-        {
+    export class SpriteContainer extends Container {
         constructor(spriteSheet?: SpriteSheet);
 
         spriteSheet: SpriteSheet;
-        }
+    }
 
     // what is returned from SpriteSheet.getAnimation(string)
     interface SpriteSheetAnimation {
@@ -858,8 +837,7 @@ declare namespace createjs {
         static mergeAlpha(rgbImage: HTMLImageElement, alphaImage: HTMLImageElement, canvas?: HTMLCanvasElement): HTMLCanvasElement; // deprecated
     }
 
-    export class SpriteStage extends Stage
-        {
+    export class SpriteStage extends Stage {
         constructor(canvas: HTMLCanvasElement | string, preserveDrawingBuffer?: boolean, antialias?: boolean);
 
         // properties
@@ -874,7 +852,7 @@ declare namespace createjs {
         // methods
         clearImageTexture(image: Object): void;
         updateViewport(width: number, height: number): void;
-        }
+    }
 
     export class Stage extends Container {
         constructor(canvas: HTMLCanvasElement | string | Object);

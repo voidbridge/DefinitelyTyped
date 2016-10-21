@@ -104,7 +104,7 @@ let mediaStreamTrack: MediaStreamTrack = {
         'id', kind: 'kind', label: 'label', muted: true, onended: () => { }, onmute: () => { },
     onoverconstrained: () => { }, onunmute: () => { }, readonly: true, readyState: 'string',
     remote: true, applyConstraints: (): Promise<void> => { return new Promise<void>(() => { }) },
-    clone: ():MediaStreamTrack => { return this;}, 
+    clone: ():MediaStreamTrack => { return this;},
     getCapabilities: ():MediaTrackCapabilities => { return {latency:0};},
     getConstraints: ():MediaTrackConstraints => { return {}},
     getSettings: ():MediaTrackSettings => { return { latency: 0}},

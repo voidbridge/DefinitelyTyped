@@ -238,7 +238,7 @@ Methods:
 
 declare var _: _.LoDashStatic;
 
-declare module _ {
+declare namespace _ {
     interface LoDashStatic {
         /**
         * Creates a lodash object which wraps the given value to enable intuitive method chaining.
@@ -512,7 +512,7 @@ declare module _ {
          * console.log(array);
          * // => [1]
          */
-         concat<T>(array: T[]|List<T>, ...values: (T|T[]|List<T>)[]) : T[];
+         concat<T>(array: T[]|List<T>, ...values: (T|T[]|List<T>)[]): T[];
     }
 
     //_.difference
@@ -10415,7 +10415,7 @@ declare module _ {
         memoize: {
             <T extends Function>(func: T, resolver?: Function): T & MemoizedFunction;
             Cache: MapCacheConstructor;
-        }
+        };
     }
 
     interface LoDashImplicitObjectWrapper<T> {
@@ -10628,7 +10628,7 @@ declare module _ {
         * @param args Arguments to be partially applied.
         * @return The new partially applied function.
         **/
-        partialRight: PartialRight
+        partialRight: PartialRight;
     }
 
     interface PartialRight {
@@ -11537,14 +11537,14 @@ declare module _ {
         isArray<T>(value?: any): value is T[];
     }
 
-    interface LoDashImplicitWrapperBase<T,TWrapper> {
+    interface LoDashImplicitWrapperBase<T, TWrapper> {
         /**
          * @see _.isArray
          */
         isArray(): boolean;
     }
 
-    interface LoDashExplicitWrapperBase<T,TWrapper> {
+    interface LoDashExplicitWrapperBase<T, TWrapper> {
         /**
          * @see _.isArray
          */
@@ -11606,14 +11606,14 @@ declare module _ {
         isArrayLike<T>(value?: any): value is T[];
     }
 
-    interface LoDashImplicitWrapperBase<T,TWrapper> {
+    interface LoDashImplicitWrapperBase<T, TWrapper> {
         /**
          * @see _.isArrayLike
          */
         isArrayLike(): boolean;
     }
 
-    interface LoDashExplicitWrapperBase<T,TWrapper> {
+    interface LoDashExplicitWrapperBase<T, TWrapper> {
         /**
          * @see _.isArrayLike
          */
@@ -11649,14 +11649,14 @@ declare module _ {
         isArrayLikeObject<T>(value?: any): value is T[];
     }
 
-    interface LoDashImplicitWrapperBase<T,TWrapper> {
+    interface LoDashImplicitWrapperBase<T, TWrapper> {
         /**
          * @see _.isArrayLikeObject
          */
         isArrayLikeObject(): boolean;
     }
 
-    interface LoDashExplicitWrapperBase<T,TWrapper> {
+    interface LoDashExplicitWrapperBase<T, TWrapper> {
         /**
          * @see _.isArrayLikeObject
          */
@@ -14748,7 +14748,7 @@ declare module _ {
         /**
          * @see _.defaultsDeep
          **/
-        defaultsDeep<TResult>(...sources: any[]): LoDashImplicitObjectWrapper<TResult>
+        defaultsDeep<TResult>(...sources: any[]): LoDashImplicitObjectWrapper<TResult>;
     }
 
     // _.extend

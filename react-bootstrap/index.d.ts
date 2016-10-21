@@ -133,7 +133,7 @@ declare namespace ReactBootstrap {
 
     // <Clearfix />
     interface ClearfixProps extends React.HTMLProps<Clearfix> {
-        componentClass?: React.ReactType,
+        componentClass?: React.ReactType;
         visibleXsBlock?: boolean;
         visibleSmBlock?: boolean;
         visibleMdBlock?: boolean;
@@ -144,8 +144,8 @@ declare namespace ReactBootstrap {
 
     // <Collapse />
     interface CollapseProps extends TransitionCallbacks, React.Props<Collapse> {
-        dimension?: 'height' | 'width' | { ( ):string };
-        getDimensionValue?: ( dimension:number, element:React.ReactElement<any> ) => number;
+        dimension?: 'height' | 'width' | { ( ): string };
+        getDimensionValue?: ( dimension: number, element: React.ReactElement<any> ) => number;
         in?: boolean;
         timeout?: number;
         transitionAppear?: boolean;
@@ -205,7 +205,7 @@ declare namespace ReactBootstrap {
         open?: boolean;
         title?: string;
         useAnchor?: boolean;
-        bsClass?:string; // Added since v0.30.0
+        bsClass?: string; // Added since v0.30.0
     }
     class DropdownToggle extends React.Component<DropdownToggleProps, any> { }
 
@@ -283,10 +283,10 @@ declare namespace ReactBootstrap {
         onHide?: Function;
         onEnter?: Function;
         onEntered?: Function;
-        onEntering?: Function;    
+        onEntering?: Function;
         onExit?: Function;
         onExited?: Function;
-        onExiting?: Function;    
+        onExiting?: Function;
     }
     type ModalDialog = React.ClassicComponent<ModalDialogProps, {}>;
     var ModalDialog: React.ClassicComponentClass<ModalDialogProps>;
@@ -614,7 +614,7 @@ declare namespace ReactBootstrap {
         onSelect?: SelectCallback;
     }
     interface PagerClass extends React.ClassicComponentClass<PagerProps> {
-        Item: typeof PageItem // Added since v0.30.0
+        Item: typeof PageItem; // Added since v0.30.0
     }
     type Pager = React.ClassicComponent<PagerProps, {}>;
     var Pager: PagerClass;
@@ -1031,23 +1031,23 @@ declare namespace ReactBootstrap {
     var Media: MediaClass;
 
     /* Utils */
-    interface bootstrapUtilsType{
+    interface bootstrapUtilsType {
         // TODO: Implement functions
     }
-    function createChainedFunctionType(...funcs:Function[]):Function
-    interface ValidComponentChildrenType{
-        map: (children:any,func:any,context:any) => any
-        forEach:(children:any,func:any,context:any) => any
-        count:(children:any) => number
-        filter:(children:any,func:any,context:any) => any
-        find:(children:any,func:any,context:any) => any
-        every:(children:any,func:any,context:any) => any
-        some:(children:any,func:any,context:any) => any
-        toArray:(children:any) => any
+    function createChainedFunctionType(...funcs: Function[]): Function;
+    interface ValidComponentChildrenType {
+        map: (children: any, func: any, context: any) => any;
+        forEach: (children: any, func: any, context: any) => any;
+        count: (children: any) => number;
+        filter: (children: any, func: any, context: any) => any;
+        find: (children: any, func: any, context: any) => any;
+        every: (children: any, func: any, context: any) => any;
+        some: (children: any, func: any, context: any) => any;
+        toArray: (children: any) => any;
     }
     class utils {
-        static bootstrapUtils:bootstrapUtilsType
-        static createChainedFunction: typeof createChainedFunctionType
-        static ValidComponentChildren:ValidComponentChildrenType
+        static bootstrapUtils: bootstrapUtilsType;
+        static createChainedFunction: typeof createChainedFunctionType;
+        static ValidComponentChildren: ValidComponentChildrenType;
     }
 }

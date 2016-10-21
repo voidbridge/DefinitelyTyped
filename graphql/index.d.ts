@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 /*************************************
- *                                   * 
- *               MODULES             * 
+ *                                   *
+ *               MODULES             *
  *                                   *
  *************************************/
 ///////////////////////////
@@ -236,7 +236,7 @@ declare module "graphql/graphql" {
     type GraphQLResult = {
         data?: Object;
         errors?: Array<GraphQLError>;
-    }
+    };
 }
 
 ///////////////////////////
@@ -403,7 +403,7 @@ declare module "graphql/language/ast" {
         | EnumValueDefinition
         | InputObjectTypeDefinition
         | TypeExtensionDefinition
-        | DirectiveDefinition
+        | DirectiveDefinition;
 
     // Name
 
@@ -411,7 +411,7 @@ declare module "graphql/language/ast" {
         kind: 'Name';
         loc?: Location;
         value: string;
-    }
+    };
 
     // Document
 
@@ -419,11 +419,11 @@ declare module "graphql/language/ast" {
         kind: 'Document';
         loc?: Location;
         definitions: Array<Definition>;
-    }
+    };
 
     type Definition = OperationDefinition
         | FragmentDefinition
-        | TypeSystemDefinition // experimental non-spec addition.
+        | TypeSystemDefinition; // experimental non-spec addition.
 
     type OperationDefinition = {
         kind: 'OperationDefinition';
@@ -433,7 +433,7 @@ declare module "graphql/language/ast" {
         variableDefinitions?: Array<VariableDefinition>;
         directives?: Array<Directive>;
         selectionSet: SelectionSet;
-    }
+    };
 
     // Note: subscription is an experimental non-spec addition.
     type OperationType = 'query' | 'mutation' | 'subscription';
@@ -444,23 +444,23 @@ declare module "graphql/language/ast" {
         variable: Variable;
         type: Type;
         defaultValue?: Value;
-    }
+    };
 
     type Variable = {
         kind: 'Variable';
         loc?: Location;
         name: Name;
-    }
+    };
 
     type SelectionSet = {
         kind: 'SelectionSet';
         loc?: Location;
         selections: Array<Selection>;
-    }
+    };
 
     type Selection = Field
         | FragmentSpread
-        | InlineFragment
+        | InlineFragment;
 
     type Field = {
         kind: 'Field';
@@ -470,14 +470,14 @@ declare module "graphql/language/ast" {
         arguments?: Array<Argument>;
         directives?: Array<Directive>;
         selectionSet?: SelectionSet;
-    }
+    };
 
     type Argument = {
         kind: 'Argument';
         loc?: Location;
         name: Name;
         value: Value;
-    }
+    };
 
 
     // Fragments
@@ -487,7 +487,7 @@ declare module "graphql/language/ast" {
         loc?: Location;
         name: Name;
         directives?: Array<Directive>;
-    }
+    };
 
     type InlineFragment = {
         kind: 'InlineFragment';
@@ -495,7 +495,7 @@ declare module "graphql/language/ast" {
         typeCondition?: NamedType;
         directives?: Array<Directive>;
         selectionSet: SelectionSet;
-    }
+    };
 
     type FragmentDefinition = {
         kind: 'FragmentDefinition';
@@ -504,7 +504,7 @@ declare module "graphql/language/ast" {
         typeCondition: NamedType;
         directives?: Array<Directive>;
         selectionSet: SelectionSet;
-    }
+    };
 
 
     // Values
@@ -516,56 +516,56 @@ declare module "graphql/language/ast" {
         | BooleanValue
         | EnumValue
         | ListValue
-        | ObjectValue
+        | ObjectValue;
 
     type IntValue = {
         kind: 'IntValue';
         loc?: Location;
         value: string;
-    }
+    };
 
     type FloatValue = {
         kind: 'FloatValue';
         loc?: Location;
         value: string;
-    }
+    };
 
     type StringValue = {
         kind: 'StringValue';
         loc?: Location;
         value: string;
-    }
+    };
 
     type BooleanValue = {
         kind: 'BooleanValue';
         loc?: Location;
         value: boolean;
-    }
+    };
 
     type EnumValue = {
         kind: 'EnumValue';
         loc?: Location;
         value: string;
-    }
+    };
 
     type ListValue = {
         kind: 'ListValue';
         loc?: Location;
         values: Array<Value>;
-    }
+    };
 
     type ObjectValue = {
         kind: 'ObjectValue';
         loc?: Location;
         fields: Array<ObjectField>;
-    }
+    };
 
     type ObjectField = {
         kind: 'ObjectField';
         loc?: Location;
         name: Name;
         value: Value;
-    }
+    };
 
 
     // Directives
@@ -575,14 +575,14 @@ declare module "graphql/language/ast" {
         loc?: Location;
         name: Name;
         arguments?: Array<Argument>;
-    }
+    };
 
 
     // Type Reference
 
     type Type = NamedType
         | ListType
-        | NonNullType
+        | NonNullType;
 
     type NamedType = {
         kind: 'NamedType';
@@ -594,48 +594,48 @@ declare module "graphql/language/ast" {
         kind: 'ListType';
         loc?: Location;
         type: Type;
-    }
+    };
 
     type NonNullType = {
         kind: 'NonNullType';
         loc?: Location;
         type: NamedType | ListType;
-    }
+    };
 
     // Type System Definition
 
     type TypeSystemDefinition = SchemaDefinition
         | TypeDefinition
         | TypeExtensionDefinition
-        | DirectiveDefinition
+        | DirectiveDefinition;
 
     type SchemaDefinition = {
         kind: 'SchemaDefinition';
         loc?: Location;
         directives: Array<Directive>;
         operationTypes: Array<OperationTypeDefinition>;
-    }
+    };
 
     type OperationTypeDefinition = {
         kind: 'OperationTypeDefinition';
         loc?: Location;
         operation: OperationType;
         type: NamedType;
-    }
+    };
 
     type TypeDefinition = ScalarTypeDefinition
         | ObjectTypeDefinition
         | InterfaceTypeDefinition
         | UnionTypeDefinition
         | EnumTypeDefinition
-        | InputObjectTypeDefinition
+        | InputObjectTypeDefinition;
 
     type ScalarTypeDefinition = {
         kind: 'ScalarTypeDefinition';
         loc?: Location;
         name: Name;
         directives?: Array<Directive>;
-    }
+    };
 
     type ObjectTypeDefinition = {
         kind: 'ObjectTypeDefinition';
@@ -644,7 +644,7 @@ declare module "graphql/language/ast" {
         interfaces?: Array<NamedType>;
         directives?: Array<Directive>;
         fields: Array<FieldDefinition>;
-    }
+    };
 
     type FieldDefinition = {
         kind: 'FieldDefinition';
@@ -653,7 +653,7 @@ declare module "graphql/language/ast" {
         arguments: Array<InputValueDefinition>;
         type: Type;
         directives?: Array<Directive>;
-    }
+    };
 
     type InputValueDefinition = {
         kind: 'InputValueDefinition';
@@ -662,7 +662,7 @@ declare module "graphql/language/ast" {
         type: Type;
         defaultValue?: Value;
         directives?: Array<Directive>;
-    }
+    };
 
     type InterfaceTypeDefinition = {
         kind: 'InterfaceTypeDefinition';
@@ -670,7 +670,7 @@ declare module "graphql/language/ast" {
         name: Name;
         directives?: Array<Directive>;
         fields: Array<FieldDefinition>;
-    }
+    };
 
     type UnionTypeDefinition = {
         kind: 'UnionTypeDefinition';
@@ -678,7 +678,7 @@ declare module "graphql/language/ast" {
         name: Name;
         directives?: Array<Directive>;
         types: Array<NamedType>;
-    }
+    };
 
     type EnumTypeDefinition = {
         kind: 'EnumTypeDefinition';
@@ -686,14 +686,14 @@ declare module "graphql/language/ast" {
         name: Name;
         directives?: Array<Directive>;
         values: Array<EnumValueDefinition>;
-    }
+    };
 
     type EnumValueDefinition = {
         kind: 'EnumValueDefinition';
         loc?: Location;
         name: Name;
         directives?: Array<Directive>;
-    }
+    };
 
     type InputObjectTypeDefinition = {
         kind: 'InputObjectTypeDefinition';
@@ -701,13 +701,13 @@ declare module "graphql/language/ast" {
         name: Name;
         directives?: Array<Directive>;
         fields: Array<InputValueDefinition>;
-    }
+    };
 
     type TypeExtensionDefinition = {
         kind: 'TypeExtensionDefinition';
         loc?: Location;
         definition: ObjectTypeDefinition;
-    }
+    };
 
     type DirectiveDefinition = {
         kind: 'DirectiveDefinition';
@@ -715,7 +715,7 @@ declare module "graphql/language/ast" {
         name: Name;
         arguments?: Array<InputValueDefinition>;
         locations: Array<Name>;
-    }
+    };
 
 }
 
@@ -992,7 +992,7 @@ declare module "graphql/language/visitor" {
         EnumValueDefinition: string[];
         InputObjectTypeDefinition: string[];
         TypeExtensionDefinition: string[];
-    }
+    };
 
     const BREAK: any;
 
@@ -1203,7 +1203,7 @@ declare module "graphql/type/definition" {
         GraphQLEnumType |
         GraphQLInputObjectType;
 
-    function getNamedType(type: GraphQLType): GraphQLNamedType
+    function getNamedType(type: GraphQLType): GraphQLNamedType;
 
     /**
      * Used while defining GraphQL types to allow for circular references in
@@ -1308,7 +1308,7 @@ declare module "graphql/type/definition" {
         interfaces?: Thunk<Array<GraphQLInterfaceType>>;
         fields: Thunk<GraphQLFieldConfigMap<TSource>>;
         isTypeOf?: GraphQLIsTypeOfFn;
-        description?: string
+        description?: string;
     }
 
     type GraphQLTypeResolveFn = (
@@ -1417,15 +1417,15 @@ declare module "graphql/type/definition" {
     }
 
     interface GraphQLInterfaceTypeConfig {
-        name: string,
-        fields: Thunk<GraphQLFieldConfigMap<any>>,
+        name: string;
+        fields: Thunk<GraphQLFieldConfigMap<any>>;
         /**
          * Optionally provide a custom type resolver function. If one is not provided,
          * the default implementation will call `isTypeOf` on each implementing
          * Object type.
          */
-        resolveType?: GraphQLTypeResolveFn,
-        description?: string
+        resolveType?: GraphQLTypeResolveFn;
+        description?: string;
     }
 
     /**
@@ -1464,8 +1464,8 @@ declare module "graphql/type/definition" {
     }
 
     interface GraphQLUnionTypeConfig {
-        name: string,
-        types: Thunk<Array<GraphQLObjectType>>,
+        name: string;
+        types: Thunk<Array<GraphQLObjectType>>;
         /**
          * Optionally provide a custom type resolver function. If one is not provided,
          * the default implementation will call `isTypeOf` on each implementing
@@ -1668,7 +1668,7 @@ declare module "graphql/type/directives" {
         INPUT_FIELD_DEFINITION: 'INPUT_FIELD_DEFINITION',
     };
 
-    type DirectiveLocationEnum = any //$Keys<typeof DirectiveLocation>
+    type DirectiveLocationEnum = any; //$Keys<typeof DirectiveLocation>
 
     /**
      * Directives are used by the GraphQL runtime as a way of modifying execution
@@ -1746,7 +1746,7 @@ declare module "graphql/type/introspection" {
         INPUT_OBJECT: 'INPUT_OBJECT',
         LIST: 'LIST',
         NON_NULL: 'NON_NULL',
-    }
+    };
 
     const __TypeKind: GraphQLEnumType;
 
@@ -1924,8 +1924,8 @@ declare module "graphql/validation/validate" {
 
     type HasSelectionSet = OperationDefinition | FragmentDefinition;
     interface VariableUsage {
-        node: Variable,
-        type: GraphQLInputType
+        node: Variable;
+        type: GraphQLInputType;
     }
 
     /**
@@ -2038,7 +2038,7 @@ declare module "graphql/execution/execute" {
             [key: string]: any
         },
         operationName?: string
-    ): Promise<ExecutionResult>
+    ): Promise<ExecutionResult>;
 }
 
 declare module "graphql/execution/values" {
@@ -2054,7 +2054,7 @@ declare module "graphql/execution/values" {
         schema: GraphQLSchema,
         definitionASTs: Array<VariableDefinition>,
         inputs: { [key: string]: any }
-    ): { [key: string]: any }
+    ): { [key: string]: any };
 
     /**
      * Prepares an object map of argument values given a list of argument

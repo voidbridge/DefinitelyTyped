@@ -3,7 +3,7 @@
 // Definitions by: neuecc <https://www.codeplex.com/site/users/view/neuecc>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare module linqjs {
+declare namespace linqjs {
     interface IEnumerator<T> {
         current(): T;
         moveNext(): boolean;
@@ -197,7 +197,7 @@ declare module linqjs {
         cast<TResult>(): IEnumerable<TResult>;
         toArray(): T[];
         toList(): IList<T>;
-        // truly, return type is ILookup<TKey, T> but Visual Studio + TypeScript Compiler can't compile. 
+        // truly, return type is ILookup<TKey, T> but Visual Studio + TypeScript Compiler can't compile.
         toLookup<TKey>(keySelector: (element: T) => TKey): ILookup<TKey, any>;
         toLookup<TKey, TElement>(keySelector: (element: T) => TKey, elementSelector: (element: T) => TElement): ILookup<TKey, TElement>;
         toLookup<TKey, TElement, TCompare>(keySelector: (element: T) => TKey, elementSelector: (element: T) => TElement, compareSelector: (key: TKey) => TCompare): ILookup<TKey, TElement>;
@@ -236,8 +236,8 @@ declare module linqjs {
 
     interface IOrderedEnumerable<T> extends IEnumerable<T> {
         createOrderedEnumerable<TKey>(keySelector: (element: T) => TKey, comparison: (x: TKey, y: TKey) => number, descending: boolean): IOrderedEnumerable<T>;
-        thenBy<TKey>(keySelector: (element: T) => TKey) : IOrderedEnumerable<T>;
-        thenBy<TKey>(keySelector: (element: T) => TKey, comparison: (x: TKey, y: TKey) => number) : IOrderedEnumerable<T>;
+        thenBy<TKey>(keySelector: (element: T) => TKey): IOrderedEnumerable<T>;
+        thenBy<TKey>(keySelector: (element: T) => TKey, comparison: (x: TKey, y: TKey) => number): IOrderedEnumerable<T>;
         thenByDescending<TKey>(keySelector: (element: T) => TKey): IOrderedEnumerable<T>;
         thenByDescending<TKey>(keySelector: (element: T) => TKey, comparison: (x: TKey, y: TKey) => number): IOrderedEnumerable<T>;
     }
