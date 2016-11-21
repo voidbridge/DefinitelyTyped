@@ -4550,15 +4550,54 @@ declare namespace Electron {
 		landscape?: boolean;
 	}
 
+	interface CertificatePrincipal {
+		/**
+		 * Common Name.
+		 */
+		commonName: string;
+		/**
+		 * Organization names.
+		 */
+		organizations: string[];
+		/**
+		 * Organization Unit names.
+		 */
+		organizationUnits: string[];
+		/**
+		 * Locality.
+		 */
+		locality: string;
+		/**
+		 * State or province.
+		 */
+		state: string;
+		/**
+		 * Country or region.
+		 */
+		country: string;
+	}
+
 	interface Certificate {
 		/**
 		 * PEM encoded data.
 		 */
 		data: string;
 		/**
+		 * Issuer principal.
+		 */
+		issuer: CertificatePrincipal;
+		/**
 		 * Issuer's Common Name.
 		 */
 		issuerName: string;
+		/**
+		 * Issuer certificate (if not self-signed).
+		 */
+		issuerCert: Certificate;
+		/**
+		 * Subject principal.
+		 */
+		subject: CertificatePrincipal;
 		/**
 		 * Subject's Common Name.
 		 */
